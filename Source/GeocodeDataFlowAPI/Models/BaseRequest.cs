@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     [KnownType(typeof(GeocodeRequest))]
     [KnownType(typeof(ReverseGeocodeRequest))]

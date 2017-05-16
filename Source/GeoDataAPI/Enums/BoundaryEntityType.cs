@@ -1,5 +1,5 @@
 ﻿
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
     /// The supported boundary entity types. Note that not all all entity types are available in all regions.

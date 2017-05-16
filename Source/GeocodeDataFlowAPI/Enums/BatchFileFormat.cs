@@ -1,5 +1,5 @@
 ﻿
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// The data format of a batch geocode file.

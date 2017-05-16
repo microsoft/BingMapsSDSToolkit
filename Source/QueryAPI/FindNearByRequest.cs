@@ -38,7 +38,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         /// <summary>
         /// A centeral coordinate to perform the nearby search. Overrides the Address value if both are specified.
         /// </summary>
-        public GeoDataLocation Center { get; set; }
+        public GeodataLocation Center { get; set; }
 
         /// <summary>
         /// A string address to perform a nearby search around. 
@@ -64,7 +64,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         {
             string spatialFilter;
 
-            double disKm = SpatialTools.ConvertDistance(Distance, DistanceUnits, DistanceUnitType.KM);
+            double disKm = SpatialTools.ConvertDistance(Distance, DistanceUnits, DistanceUnitType.Kilometers);
 
             if (disKm < 0.16)
             {

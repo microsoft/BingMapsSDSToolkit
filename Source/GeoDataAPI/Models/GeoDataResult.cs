@@ -3,16 +3,16 @@ using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Linq;
 
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
-    /// A GeoData boundary result.
+    /// A Geodata boundary result.
     /// </summary>
-    public class GeoDataResult
+    public class GeodataResult
     {
         #region Private Properties
 
-        private List<GeoDataPolygon> polygons = null;
+        private List<GeodataPolygon> polygons = null;
 
         #endregion
 
@@ -56,11 +56,11 @@ namespace BingMapsSDSToolkit.GeoDataAPI
         /// Parses all the Primitives into Polygon objects.
         /// </summary>
         /// <returns>A list of polygons that make up the shape boudary.</returns>
-        public List<GeoDataPolygon> GetPolygons()
+        public List<GeodataPolygon> GetPolygons()
         {
             if (polygons == null)
             {
-                polygons = new List<GeoDataPolygon>();
+                polygons = new List<GeodataPolygon>();
                 foreach (var p in Primitives)
                 {
                     polygons.Add(p.GetPolygon());
@@ -76,10 +76,10 @@ namespace BingMapsSDSToolkit.GeoDataAPI
         /// </summary>
         /// <param name="NorthWest">The north west coordinate of the bounding box.</param>
         /// <param name="SouthEast">The south east coordinate of the bounding box.</param>
-        public void GetBestMapViewBox(out GeoDataLocation NorthWest, out GeoDataLocation SouthEast)
+        public void GetBestMapViewBox(out GeodataLocation NorthWest, out GeodataLocation SouthEast)
         {
-            NorthWest = new GeoDataLocation(-85, 180);
-            SouthEast = new GeoDataLocation(85, -180);
+            NorthWest = new GeodataLocation(-85, 180);
+            SouthEast = new GeodataLocation(85, -180);
 
             if (EntityMetadata != null && !string.IsNullOrWhiteSpace(EntityMetadata.BestMapViewBox))
             {
@@ -89,13 +89,13 @@ namespace BingMapsSDSToolkit.GeoDataAPI
 
                 if (matches.Count == 4)
                 {
-                    SouthEast = new GeoDataLocation()
+                    SouthEast = new GeodataLocation()
                     {
                         Latitude = double.Parse(matches[1].Value),
                         Longitude = double.Parse(matches[0].Value),
                     };
 
-                    NorthWest = new GeoDataLocation()
+                    NorthWest = new GeodataLocation()
                     {
                         Latitude = double.Parse(matches[3].Value),
                         Longitude = double.Parse(matches[2].Value),

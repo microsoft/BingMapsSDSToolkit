@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// A tool for doing batch geocoding and reverse geocoding using the Bing Spatial Data Services.
@@ -67,10 +66,6 @@ namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
 
                 string dataflowJobLocation = await CreateJob(dataFeed, bingMapsKey);
                 
-#if DEBUG
-                Debug.WriteLine("Dataflow job status URL: ", dataflowJobLocation);
-#endif
-
                 ReportStatus("Job created and being processed.");
 
                 //Continue to check the dataflow job status until the job has completed
@@ -79,11 +74,7 @@ namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
                 do
                 {
                     statusDetails = await CheckStatus(dataflowJobLocation, bingMapsKey);
-
-#if DEBUG
-                    Debug.WriteLine("Dataflow job status: {0}", statusDetails.JobStatus);
-#endif
-
+                    
                     if (statusDetails.JobStatus == "Aborted")
                     {
                         ReportStatus("Batch geocode job aborted.");

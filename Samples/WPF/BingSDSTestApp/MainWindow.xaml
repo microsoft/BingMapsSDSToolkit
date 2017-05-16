@@ -355,27 +355,27 @@
                 </ScrollViewer>
             </TabItem>
 
-            <TabItem Header="GeoData API">
+            <TabItem Header="Geodata API">
                 <StackPanel Orientation="Horizontal">
                     <GroupBox Header="Get Boundary" BorderBrush="Black" Margin="5">
                         <StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Latitude:"/>
-                                <TextBox Name="GeoDataLatTbx" Text="40.782" Width="100" Margin="10,0"/>
+                                <TextBox Name="GeodataLatTbx" Text="40.782" Width="100" Margin="10,0"/>
                                 <TextBlock Text="Longitude:"/>
-                                <TextBox Name="GeoDataLonTbx" Text="-73.831" Width="100" Margin="10,0"/>
+                                <TextBox Name="GeodataLonTbx" Text="-73.831" Width="100" Margin="10,0"/>
                             </StackPanel>
 
                             <TextBlock Text="OR" Margin="10" HorizontalAlignment="Center"/>
 
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Address: "/>
-                                <TextBox Name="GeoDataAddressTbx" Text="New York, NY" Width="150" Margin="10,0"/>
+                                <TextBox Name="GeodataAddressTbx" Text="New York, NY" Width="150" Margin="10,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,10">
                                 <TextBlock Text="Entity Type:" VerticalAlignment="Center"/>
-                                <ComboBox Name="GeoDataEntityTypeCbx" Width="150" Margin="10,0">
+                                <ComboBox Name="GeodataEntityTypeCbx" Width="150" Margin="10,0">
                                     <ComboBox.Items>
                                         <ComboBoxItem Content="AdminDivision1"/>
                                         <ComboBoxItem Content="AdminDivision2"/>
@@ -392,7 +392,7 @@
 
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Level of Detail:" VerticalAlignment="Center"/>
-                                <ComboBox Name="GeoDataLevelOfDetailCbx" Width="50" Margin="10,0">
+                                <ComboBox Name="GeodataLevelOfDetailCbx" Width="50" Margin="10,0">
                                     <ComboBox.Items>
                                         <ComboBoxItem Content="0" IsSelected="True"/>
                                         <ComboBoxItem Content="1"/>
@@ -402,7 +402,7 @@
                                 </ComboBox>
 
                                 <TextBlock Text="Region:" VerticalAlignment="Center"/>
-                                <ComboBox Name="GeoDataRegionCbx" Width="75" Margin="10,0">
+                                <ComboBox Name="GeodataRegionCbx" Width="75" Margin="10,0">
                                     <ComboBox.Items>
                                         <ComboBoxItem Content="AR"/>
                                         <ComboBoxItem Content="CN"/>
@@ -414,11 +414,11 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,10">
-                                <CheckBox Name="GeoDataGetPolysChbx" IsChecked="True" Content="Get All Polygons"/>
-                                <CheckBox Name="GeoDataGetMetadataChbx" IsChecked="True" Content="Get Metadata Polygons" Margin="10,0,0,0"/>
+                                <CheckBox Name="GeodataGetPolysChbx" IsChecked="True" Content="Get All Polygons"/>
+                                <CheckBox Name="GeodataGetMetadataChbx" IsChecked="True" Content="Get Metadata Polygons" Margin="10,0,0,0"/>
                             </StackPanel>
 
-                            <Button Content="Get Boundary" Click="GetGeoDataBoundary_Clicked" Width="100"/>
+                            <Button Content="Get Boundary" Click="GetGeodataBoundary_Clicked" Width="100"/>
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>

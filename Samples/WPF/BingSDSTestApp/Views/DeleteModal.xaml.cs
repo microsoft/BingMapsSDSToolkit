@@ -15,6 +15,7 @@ namespace BingSDSTestApp.Views
             
             info = new BasicDataSourceInfo()
             {
+                AccessId = details.AccessId,
                 QueryURL = details.QueryURL,
                 MasterKey = details.MasterKey
             };
@@ -22,11 +23,11 @@ namespace BingSDSTestApp.Views
             this.DataContext = info;
         }
 
-        private void Ok_Clicked(object sender, RoutedEventArgs e)
+        private async void Ok_Clicked(object sender, RoutedEventArgs e)
         {
             try
             {
-                new DataSourceManager().DeleteDataSource(info);
+                await new DataSourceManager().DeleteDataSource(info);
             }
             catch (Exception ex)
             {

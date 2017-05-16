@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// An eneity in the the geocode feed to be geocoded or reverse geocoded.

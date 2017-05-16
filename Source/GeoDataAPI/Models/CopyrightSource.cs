@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
     /// Copyright source information.

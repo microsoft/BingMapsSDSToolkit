@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// A string specifying the minimum confidence required for the result. 

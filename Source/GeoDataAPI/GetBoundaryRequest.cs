@@ -1,8 +1,8 @@
 ﻿
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
-    /// An object the contains the reuqest information for retrieving a boundary.
+    /// An object the contains the request information for retrieving a boundary.
     /// </summary>
     public class GetBoundaryRequest
     {
@@ -20,7 +20,7 @@ namespace BingMapsSDSToolkit.GeoDataAPI
         /// <summary>
         /// The coordinate to use to find intersecting boundary. If set, this will override the Address property when doing a search.
         /// </summary>
-        public GeoDataLocation Coordinate { get; set; }
+        public GeodataLocation Coordinate { get; set; }
 
         /// <summary>
         /// An address string that is geocoded by the service to get latitude and longitude coordinates.

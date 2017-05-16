@@ -1,5 +1,5 @@
 ﻿
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// The confidence types of a geocode result.

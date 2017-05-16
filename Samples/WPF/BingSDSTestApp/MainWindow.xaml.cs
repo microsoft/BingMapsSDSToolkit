@@ -1,8 +1,8 @@
 ﻿using BingSDSTestApp.Views;
 using BingMapsSDSToolkit;
 using BingMapsSDSToolkit.DataSourceAPI;
-using BingMapsSDSToolkit.GeocodeDataFlowAPI;
-using BingMapsSDSToolkit.GeoDataAPI;
+using BingMapsSDSToolkit.GeocodeDataflowAPI;
+using BingMapsSDSToolkit.GeodataAPI;
 using BingMapsSDSToolkit.QueryAPI;
 using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Win32;
@@ -23,8 +23,6 @@ namespace BingSDSTestApp
         #region Private Properties
 
         private DataSourceManager dataSourceManager;
-        private GeoDataManager geoDataManager;
-        private QueryManager queryManager;
 
         private static string BingMapsKey = ConfigurationManager.AppSettings.Get("BingMapsKey");
 
@@ -37,7 +35,7 @@ namespace BingSDSTestApp
         {
             //QueryURL = "http://spatial.virtualearth.net/REST/v1/data/f22876ec257b474b82fe2ffcb8393150/NavteqNA/NavteqPOIs",
             QueryURL = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
-            QueryKey = BingMapsKey
+            QueryKey = BingMapsKey,
         };
 
         #endregion
@@ -49,8 +47,6 @@ namespace BingSDSTestApp
             InitializeComponent();
 
             dataSourceManager = new DataSourceManager();
-            geoDataManager = new GeoDataManager();
-            queryManager = new QueryManager();
 
             MyMap.CredentialsProvider = new ApplicationIdCredentialsProvider(BingMapsKey);
         }
@@ -350,38 +346,38 @@ namespace BingSDSTestApp
 
         #endregion
 
-        #region GeoData API Code Samples
+        #region Geodata API Code Samples
 
         /// <summary>
-        /// Gets a boundary from the GeoData API.
+        /// Gets a boundary from the Geodata API.
         /// </summary>
-        private void GetGeoDataBoundary_Clicked(object sender, RoutedEventArgs e)
+        private void GetGeodataBoundary_Clicked(object sender, RoutedEventArgs e)
         {
             var request = new GetBoundaryRequest()
             {               
-                EntityType = (BoundaryEntityType)Enum.Parse(typeof(BoundaryEntityType), ((string)(GeoDataEntityTypeCbx.SelectedItem as ComboBoxItem).Content)),
-                LevelOfDetail = int.Parse((string)(GeoDataLevelOfDetailCbx.SelectedItem as ComboBoxItem).Content),
-                UserRegion = (string)(GeoDataRegionCbx.SelectedItem as ComboBoxItem).Content,
-                GetAllPolygons = (GeoDataGetPolysChbx.IsChecked.HasValue)? GeoDataGetPolysChbx.IsChecked.Value : false,
-                GetEntityMetadata = (GeoDataGetMetadataChbx.IsChecked.HasValue)? GeoDataGetMetadataChbx.IsChecked.Value : false,
+                EntityType = (BoundaryEntityType)Enum.Parse(typeof(BoundaryEntityType), ((string)(GeodataEntityTypeCbx.SelectedItem as ComboBoxItem).Content)),
+                LevelOfDetail = int.Parse((string)(GeodataLevelOfDetailCbx.SelectedItem as ComboBoxItem).Content),
+                UserRegion = (string)(GeodataRegionCbx.SelectedItem as ComboBoxItem).Content,
+                GetAllPolygons = (GeodataGetPolysChbx.IsChecked.HasValue)? GeodataGetPolysChbx.IsChecked.Value : false,
+                GetEntityMetadata = (GeodataGetMetadataChbx.IsChecked.HasValue)? GeodataGetMetadataChbx.IsChecked.Value : false,
                 Culture = "en-US"
             };
 
             double lat, lon;
 
-            if (!string.IsNullOrEmpty(GeoDataLatTbx.Text) && !string.IsNullOrEmpty(GeoDataLonTbx.Text) &&
-                double.TryParse(GeoDataLatTbx.Text, out lat) && double.TryParse(GeoDataLonTbx.Text, out lon))
+            if (!string.IsNullOrEmpty(GeodataLatTbx.Text) && !string.IsNullOrEmpty(GeodataLonTbx.Text) &&
+                double.TryParse(GeodataLatTbx.Text, out lat) && double.TryParse(GeodataLonTbx.Text, out lon))
             {
-                request.Coordinate = new BingMapsSDSToolkit.GeoDataLocation(lat, lon);
+                request.Coordinate = new BingMapsSDSToolkit.GeodataLocation(lat, lon);
             }
-            else if (!string.IsNullOrWhiteSpace(GeoDataAddressTbx.Text))
+            else if (!string.IsNullOrWhiteSpace(GeodataAddressTbx.Text))
             {
-                request.Address = GeoDataAddressTbx.Text;
+                request.Address = GeodataAddressTbx.Text;
             }
 
             if (request.Coordinate != null || !string.IsNullOrWhiteSpace(request.Address))
             {
-                MakeGeoDataRequest(request);
+                MakeGeodataRequest(request);
             }
             else
             {
@@ -390,16 +386,16 @@ namespace BingSDSTestApp
         }
 
         /// <summary>
-        /// Makes a request to get boundary data from the GeoData API.
+        /// Makes a request to get boundary data from the Geodata API.
         /// </summary>
-        private async void MakeGeoDataRequest(GetBoundaryRequest request)
+        private async void MakeGeodataRequest(GetBoundaryRequest request)
         {
             Clear();
             OutputTab.IsSelected = true;
 
             try
             {
-                var response = await geoDataManager.GetBoundary(request, BingMapsKey);
+                var response = await GeodataManager.GetBoundary(request, BingMapsKey);
 
                 if (response != null && response.Count > 0)
                 {
@@ -577,7 +573,7 @@ namespace BingSDSTestApp
             if (!string.IsNullOrEmpty(FNBLatTbx.Text) && !string.IsNullOrEmpty(FNBLonTbx.Text) &&
                 double.TryParse(FNBLatTbx.Text, out lat) && double.TryParse(FNBLonTbx.Text, out lon))
             {
-                request.Center = new BingMapsSDSToolkit.GeoDataLocation(lat, lon);
+                request.Center = new BingMapsSDSToolkit.GeodataLocation(lat, lon);
             }
             else if (!string.IsNullOrWhiteSpace(FNBAddressTbx.Text))
             {
@@ -630,7 +626,7 @@ namespace BingSDSTestApp
         {
             double lat, lon;
 
-            FindNearRouteRequest request = new FindNearRouteRequest(_queryApiDataSourceSettings)
+            var request = new FindNearRouteRequest(_queryApiDataSourceSettings)
             {
                 DistanceUnits = (DistanceUnitType)Enum.Parse(typeof(DistanceUnitType), ((string)(DistanceUnitCbx.SelectedItem as ComboBoxItem).Content)),
                 TravelMode = (TravelModeType)Enum.Parse(typeof(TravelModeType), ((string)(TravelModeCbx.SelectedItem as ComboBoxItem).Content)),
@@ -640,7 +636,7 @@ namespace BingSDSTestApp
             if (!string.IsNullOrEmpty(FNRSLatTbx.Text) && double.TryParse(FNRSLatTbx.Text, out lat) &&
                 !string.IsNullOrEmpty(FNRSLonTbx.Text) && double.TryParse(FNRSLonTbx.Text, out lon))
             {
-                request.StartLocation = new BingMapsSDSToolkit.GeoDataLocation(lat, lon);
+                request.StartLocation = new BingMapsSDSToolkit.GeodataLocation(lat, lon);
             }
             else if (!string.IsNullOrWhiteSpace(FNRSAddressTbx.Text))
             {
@@ -650,7 +646,7 @@ namespace BingSDSTestApp
             if (!string.IsNullOrEmpty(FNRELatTbx.Text) && double.TryParse(FNRELatTbx.Text, out lat) &&
                !string.IsNullOrEmpty(FNRELonTbx.Text) && double.TryParse(FNRELonTbx.Text, out lon))
             {
-                request.EndLocation = new BingMapsSDSToolkit.GeoDataLocation(lat, lon);
+                request.EndLocation = new BingMapsSDSToolkit.GeodataLocation(lat, lon);
             }
             else if (!string.IsNullOrWhiteSpace(FNREAddressTbx.Text))
             {
@@ -679,7 +675,7 @@ namespace BingSDSTestApp
 
             try
             {
-                var response = await queryManager.ProcessQuery(request);
+                var response = await QueryManager.ProcessQuery(request);
 
                 if (string.IsNullOrEmpty(response.ErrorMessage))
                 {
@@ -761,7 +757,7 @@ namespace BingSDSTestApp
             }
         }
 
-        public static List<MapShapeBase> CreateComplexPolygon(GeoDataPolygon polygon)
+        public static List<MapShapeBase> CreateComplexPolygon(GeodataPolygon polygon)
         {
             if (polygon != null && polygon.ExteriorRing != null && polygon.ExteriorRing.Count >= 3)
             {
@@ -813,7 +809,7 @@ namespace BingSDSTestApp
             return null;
         }
         
-        public static MapPolyline CreateMapPolyline(List<BingMapsSDSToolkit.GeoDataLocation> coordinates)
+        public static MapPolyline CreateMapPolyline(List<GeodataLocation> coordinates)
         {
             if (coordinates != null && coordinates.Count >= 2)
             {
@@ -843,7 +839,7 @@ namespace BingSDSTestApp
             var type = (BatchFileFormat)Enum.Parse(typeof(BatchFileFormat), ((string)(BatchFileFormatCbx.SelectedItem as ComboBoxItem).Content));
 
             string filters, defaultExt;
-            Utilities.GetFileExtensions(type, out defaultExt, out filters);
+            FileExtensionUtilities.GetFileExtensions(type, out defaultExt, out filters);
 
             var ofd = new OpenFileDialog()
             {
@@ -892,7 +888,7 @@ namespace BingSDSTestApp
             var type = (BatchFileFormat)Enum.Parse(typeof(BatchFileFormat), ((string)(BatchFileFormatCbx.SelectedItem as ComboBoxItem).Content));
 
             string filters, defaultExt;
-            Utilities.GetFileExtensions(type, out defaultExt, out filters);
+            FileExtensionUtilities.GetFileExtensions(type, out defaultExt, out filters);
 
             var ofd = new OpenFileDialog()
             {

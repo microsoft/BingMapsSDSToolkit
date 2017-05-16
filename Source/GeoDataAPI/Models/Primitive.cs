@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
     /// An object that stores the information for a single polygon in the boundary.
@@ -46,12 +46,12 @@ namespace BingMapsSDSToolkit.GeoDataAPI
         /// exterior ring of the polygon and list of inner rings. 
         /// </summary>
         /// <returns>A list of polygon which contains parsed coordinate values from the Shape property.</returns>
-        public GeoDataPolygon GetPolygon()
+        public GeodataPolygon GetPolygon()
         {
-            var poly = new GeoDataPolygon();
+            var poly = new GeodataPolygon();
             var encodedRings = Shape.Split(new char[] { ',' });
 
-            List<GeoDataLocation> ring;
+            List<GeodataLocation> ring;
 
             //Skip first result as it is just a version number and not a ring.
             for (int i = 1; i < encodedRings.Length; i++)

@@ -12,7 +12,7 @@ namespace BingMapsSDSToolkit.QueryAPI
 
         private int _top = 25;
         private int _skip = 0;
-        public DistanceUnitType _distanceUnits = DistanceUnitType.KM;
+        public DistanceUnitType _distanceUnits = DistanceUnitType.Kilometers;
         
         internal bool _isIdRequest = false;
         internal bool _getDistance = false;
@@ -124,7 +124,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         /// Generates the base reuqest URL that includes everything but the spatial filter.
         /// </summary>
         /// <returns></returns>
-        public string GetBaseRequestUrl()
+        internal string GetBaseRequestUrl()
         {
             if (string.IsNullOrWhiteSpace(AccessId))
             {

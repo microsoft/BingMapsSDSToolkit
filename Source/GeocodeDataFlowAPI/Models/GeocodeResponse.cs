@@ -1,7 +1,10 @@
 ﻿using System.Xml.Serialization;
 
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
+    /// <summary>
+    /// A geocode response object.
+    /// </summary>
     public class GeocodeResponse
     {
         /// <summary>
@@ -29,7 +32,7 @@ namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
         /// <summary>
         /// A coordinate for the geocoded location.
         /// </summary>
-        public GeoDataLocation Point { get; set; }
+        public GeodataLocation Point { get; set; }
 
         /// <summary>
         /// The name of the geocoded location.

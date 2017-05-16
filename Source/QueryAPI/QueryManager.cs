@@ -5,7 +5,10 @@ using System.Xml.Linq;
 
 namespace BingMapsSDSToolkit.QueryAPI
 {
-    public class QueryManager
+    /// <summary>
+    /// A static class for processing queries.
+    /// </summary>
+    public static class QueryManager
     {
         #region Public Methods
 
@@ -14,7 +17,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         /// </summary>
         /// <param name="request">A request class that derives from the BaseQueryRequest class.</param>
         /// <returns>A query response.</returns>
-        public async Task<QueryResponse> ProcessQuery(FindByPropertyRequest request)
+        public static async Task<QueryResponse> ProcessQuery(FindByPropertyRequest request)
         {
             return await MakeRequest(request);
         }
@@ -23,7 +26,7 @@ namespace BingMapsSDSToolkit.QueryAPI
 
         #region Private Methods
 
-        private async Task<QueryResponse> MakeRequest(FindByPropertyRequest request)
+        private static async Task<QueryResponse> MakeRequest(FindByPropertyRequest request)
         {
             var result = new QueryResponse();
 
@@ -39,7 +42,7 @@ namespace BingMapsSDSToolkit.QueryAPI
                     {
                         var r = new QueryResult(){
                             EntityUrl = element.Element(XmlNamespaces.Atom + "id").Value,
-                            Location = new GeoDataLocation()
+                            Location = new GeodataLocation()
                         };
 
                         XElement content = element.Element(XmlNamespaces.Atom + "content");
@@ -63,7 +66,7 @@ namespace BingMapsSDSToolkit.QueryAPI
                                             r.Location.Longitude = XmlUtilities.GetDouble(prop, 0);
                                             break;
                                         case "__distance":
-                                            r.Distance = SpatialTools.ConvertDistance(XmlUtilities.GetDouble(prop, 0), DistanceUnitType.KM, request.DistanceUnits);
+                                            r.Distance = SpatialTools.ConvertDistance(XmlUtilities.GetDouble(prop, 0), DistanceUnitType.Kilometers, request.DistanceUnits);
                                             break;
                                         case "__IntersectedGeom":
                                             var wkt = XmlUtilities.GetString(prop);
@@ -104,7 +107,7 @@ namespace BingMapsSDSToolkit.QueryAPI
             return result;
         }
 
-        private object ParseNodeValue(XElement node)
+        private static object ParseNodeValue(XElement node)
         {
             if (node.HasAttributes)
             {

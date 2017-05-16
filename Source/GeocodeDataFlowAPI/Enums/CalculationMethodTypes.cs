@@ -1,5 +1,5 @@
 ﻿
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// The types of calculations methods used for location coodinates.

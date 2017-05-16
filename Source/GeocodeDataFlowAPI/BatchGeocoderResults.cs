@@ -1,5 +1,5 @@
 ﻿
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// An object used to store the results of a batch geocoding job.

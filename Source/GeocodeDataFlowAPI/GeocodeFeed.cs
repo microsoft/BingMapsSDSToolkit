@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// An object that contains the data that is to be geocoded, or has been geocoded.
@@ -47,7 +47,7 @@ namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
         public List<GeocodeEntity> Entities { get; set; }
 
         /// <summary>
-        /// The Geocode DataFlow API version to use. This always returns version 2.
+        /// The Geocode Dataflow API version to use. This always returns version 2.
         /// </summary>
         [XmlAttribute]
         public string Version
@@ -104,6 +104,12 @@ namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
             });
         }
 
+        /// <summary>
+        /// Deserializes a GeocodeFeed from a file stream.
+        /// </summary>
+        /// <param name="stream">GeocodeFeed a file stream.</param>
+        /// <param name="fileFormat">The batch file format of the stream.</param>
+        /// <returns>A GeocodeFeed that has been parsed from a stream.</returns>
         public static Task<GeocodeFeed> ReadAsync(Stream stream, BatchFileFormat fileFormat)
         {
             if (fileFormat == BatchFileFormat.XML)
@@ -285,7 +291,7 @@ namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
             
             var reverseRequest = new ReverseGeocodeRequest()
             {
-                Location = new GeoDataLocation(0,0)
+                Location = new GeodataLocation(0,0)
             };
 
             int reqCnt = 0, resCnt = 0, revResCnt = 0;

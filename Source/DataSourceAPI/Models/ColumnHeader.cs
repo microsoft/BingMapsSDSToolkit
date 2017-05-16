@@ -3,7 +3,10 @@ using System.Text.RegularExpressions;
 
 namespace BingMapsSDSToolkit.DataSourceAPI
 {
-    public class ColunmHeader
+    /// <summary>
+    /// Data source column header information.
+    /// </summary>
+    public class ColumnHeader
     {
         #region Private Properties
 
@@ -15,19 +18,34 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
         #region Constructor
 
-        public ColunmHeader(string name)
+        /// <summary>
+        /// Data source column header information.
+        /// </summary>
+        /// <param name="name">The name of the column.</param>
+        public ColumnHeader(string name)
         {
             _name = name;
             _type = typeof(string);
         }
 
-        public ColunmHeader(string name, Type type)
+        /// <summary>
+        /// Data source column header information.
+        /// </summary>
+        /// <param name="name">The name of the column.</param>
+        /// <param name="type">The type of data in the column.</param>
+        public ColumnHeader(string name, Type type)
         {
             _name = name;
             _type = type;
         }
 
-        public ColunmHeader(string name, Type type, bool isPrimaryKey)
+        /// <summary>
+        /// Data source column header information.
+        /// </summary>
+        /// <param name="name">The name of the column.</param>
+        /// <param name="type">The type of data in the column.</param>
+        /// <param name="isPrimaryKey">A boolean indicating if the column is a primary key or not.</param>
+        public ColumnHeader(string name, Type type, bool isPrimaryKey)
         {
             _name = name;
             _type = type;
@@ -38,6 +56,9 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
         #region Public Properties
 
+        /// <summary>
+        /// The name of the column.
+        /// </summary>
         public string Name
         {
             get { return _name; }
@@ -51,13 +72,19 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                 _name = value;
             }
         }
-            
+         
+        /// <summary>
+        /// The type of data in the column.
+        /// </summary>
         public Type Type
         {
             get { return _type; }
             set { _type = value; }
         }
 
+        /// <summary>
+        /// A boolean indicating if the column is a primary key or not.
+        /// </summary>
         public bool IsPrimaryKey
         {
             get { return _isPrimaryKey; }
@@ -66,8 +93,12 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
         #endregion
 
-        #region Public Metods
+        #region Public Methods
 
+        /// <summary>
+        /// Gets the Edm type name of the column.
+        /// </summary>
+        /// <returns>The Edm type name of the column.</returns>
         public string GetEdmTypeName()
         {
             if (_type == typeof(string) || _type == typeof(String))
@@ -98,6 +129,10 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             return "Edm.String";
         }
 
+        /// <summary>
+        /// Gets the XML type name of the column.
+        /// </summary>
+        /// <returns>the XML type name of the column.</returns>
         public string GetXmlTypeName()
         {
             if (_type == typeof(string) || _type == typeof(String))
@@ -158,15 +193,15 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
         public override bool Equals(object obj)
         {
-            if (obj is ColunmHeader)
+            if (obj is ColumnHeader)
             {
-                return base.GetHashCode() == (obj as ColunmHeader).GetHashCode();
+                return base.GetHashCode() == (obj as ColumnHeader).GetHashCode();
             }
 
             return false;
         }
 
-        public static bool operator ==(ColunmHeader x, object y)
+        public static bool operator ==(ColumnHeader x, object y)
         {
             if (y != null)
             {
@@ -176,7 +211,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             return false;
         }
 
-        public static bool operator !=(ColunmHeader x, object y)
+        public static bool operator !=(ColumnHeader x, object y)
         {
             return !(x == y);
         }

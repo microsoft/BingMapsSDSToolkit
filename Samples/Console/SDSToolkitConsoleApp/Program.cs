@@ -1,4 +1,4 @@
-﻿using BingMapsSDSToolkit.GeocodeDataFlowAPI;
+﻿using BingMapsSDSToolkit.GeocodeDataflowAPI;
 using System.Collections.Generic;
 using System;
 

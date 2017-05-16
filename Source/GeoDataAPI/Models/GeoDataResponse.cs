@@ -1,17 +1,17 @@
 ﻿using System.Runtime.Serialization;
 
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
-    /// An object that contains the response from the GeoData API.
+    /// An object that contains the response from the Geodata API.
     /// </summary>
     [DataContract]
-    public class GeoDataResponse
+    public class GeodataResponse
     {
         /// <summary>
-        /// The result set from the GeoData API.
+        /// The result set from the Geodata API.
         /// </summary>
         [DataMember(Name = "d", EmitDefaultValue = false)]
-        public GeoDataResultSet ResultSet { get; set; }
+        public GeodataResultSet ResultSet { get; set; }
     }
 }

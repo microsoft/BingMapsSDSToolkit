@@ -1,6 +1,6 @@
 ![Bing Maps Logo](https://github.com/Microsoft/Bing-Maps-V8-TypeScript-Definitions/blob/master/images/BingMapsLogoTeal.png)
 
-[![NuGet](https://img.shields.io/badge/NuGet-1.0.0-blue.svg)](https://www.nuget.org/packages/BingMapsSDSToolkit)
+[![NuGet](https://img.shields.io/badge/NuGet-1.0.1-blue.svg)](https://www.nuget.org/packages/BingMapsSDSToolkit)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
 # Bing Maps Spatial Data Services (SDS) Toolkit for .NET
@@ -16,11 +16,11 @@ This is a portable .NET class library which provides a set of tools that make it
 		* Find along a route
 		* Intersection search (i.e. search within a custom shape.)
 * **Public Data sources**: Access public data sources that contain information such as points of interest and census data.
-* **Boundary Data**: Access to administrative boundary data via the GeoData API. Boundary data types available vary from country to country. Supported boundary types; zip/postal codes, neighborhoods, cities, counties, states/provinces, countries, and continents.
+* **Boundary Data**: Access to administrative boundary data via the Geodata API. Boundary data types available vary from country to country. Supported boundary types; zip/postal codes, neighborhoods, cities, counties, states/provinces, countries, and continents.
+
+See the [documenttion](Docs/readme.md) for more information on how to use this library. This toolkit is based on the [documentation for the Bing Maps Spatial Data Services](https://msdn.microsoft.com/en-us/library/ff701734.aspx). 
 
 If you are working with the Bing Maps REST services which provides; on-demand forward and reverse geocoding, routing, static imagery, traffic and elevation data, take a look at the [Bing Maps REST Toolkit](https://github.com/Microsoft/BingMapsRESTToolkit).
-
-This toolkit is based on the [documentation for the Bing Maps Spatial Data Services](https://msdn.microsoft.com/en-us/library/ff701734.aspx). 
 
 **Dependancy:** [Microsoft.Bcl.Compression](https://www.nuget.org/packages/Microsoft.Bcl.Compression)
 
@@ -65,7 +65,7 @@ Alternatively, if you are using the nuget command line:
 * Forward and reverse geocode up to 200,000 entities in a single request.
 * Combines like addresses are combined as a single request. This allows rows with the same addresses to only create a single row in the geocode process. This helps to maximize the 1M free batch geocode limit.
 
-### GeoData API:
+### Geodata API:
 
 * Search for boundary data such as zip/postal codes, neighborhoods, cities, counties, states/provinces, countries, and continents.
 * Provides compression tools for handling the encoded polygon data,
@@ -100,7 +100,7 @@ The following is a list of tasks or ideas to do on this project.
 
 MIT
  
-See [License](LICENSE.md) for full license text.
+See [License](LICENSE) for full license text.
 
 ## Additional Resources
 

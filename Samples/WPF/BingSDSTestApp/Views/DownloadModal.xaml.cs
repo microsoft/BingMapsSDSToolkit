@@ -17,6 +17,7 @@ namespace BingSDSTestApp.Views
 
             info = new BasicDataSourceInfo()
             {
+                AccessId = details.AccessId,
                 QueryURL = details.QueryURL,
                 MasterKey = details.MasterKey
             };

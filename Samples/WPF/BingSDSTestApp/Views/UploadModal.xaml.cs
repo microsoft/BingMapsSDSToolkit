@@ -47,7 +47,7 @@ namespace BingSDSTestApp.Views
             var type = (DataSourceFormat)Enum.Parse(typeof(DataSourceFormat), ((string)(DataSourceFormatCbx.SelectedItem as ComboBoxItem).Content));
 
             string filters, defaultExt;
-            Utilities.GetFileExtensions(type, out defaultExt, out filters);
+            FileExtensionUtilities.GetFileExtensions(type, out defaultExt, out filters);
 
             var ofd = new OpenFileDialog()
             {
@@ -185,13 +185,13 @@ namespace BingSDSTestApp.Views
             canClose = false;
 
             OutputTbx.Text = string.Empty;
-
+            
             var dataSourceManager = new DataSourceManager();
             dataSourceManager.UploadStatusChanged += (msg) =>
             {
                 OutputTbx.Text += msg + "\r\n";
             };
-
+            
             if (!SkipGeocoding.IsChecked.Value && type != DataSourceFormat.SHP && type != DataSourceFormat.KML)
             {
                 var r = await _dataSource.Geocode(MasterKeyTbx.Text);

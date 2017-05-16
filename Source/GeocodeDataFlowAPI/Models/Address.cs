@@ -1,11 +1,12 @@
 ﻿using System.Xml.Serialization;
 
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     public class Address
     {
         #region Public Properties
 
+        /// <summary>
         /// A string specifying the street line of an address. The AddressLine property is the most precise, 
         /// official line for an address relative to the postal agency that services the area specified by the 
         /// Locality, PostalTown, or PostalCode properties.

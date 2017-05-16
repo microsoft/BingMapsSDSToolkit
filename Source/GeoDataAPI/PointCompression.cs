@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
     /// This compression algorithm encodes/decodes a collections of locations into a string. 
     /// This algorithm is used for generating a compressed collection of locations for use 
     /// with the Bing Maps REST Elevation Service. This algorithm is also used for decoding 
-    /// the compressed coordinates returned by the GeoData API.
+    /// the compressed coordinates returned by the Geodata API.
     /// 
     /// These algorithms come from the following documentation:
     /// http://msdn.microsoft.com/en-us/library/jj158958.aspx
@@ -31,7 +31,7 @@ namespace BingMapsSDSToolkit.GeoDataAPI
         /// </summary>
         /// <param name="points">Collection of coordinates to compress.</param>
         /// <returns>A compressed string representing a collection coordinates.</returns>
-        public static string Encode(List<GeoDataLocation> points)
+        public static string Encode(List<GeodataLocation> points)
         {
             long latitude = 0;
             long longitude = 0;
@@ -85,10 +85,10 @@ namespace BingMapsSDSToolkit.GeoDataAPI
         /// <param name="value">Compressed string to decode.</param>
         /// <param name="parsedValue">Collection of decoded coordinates.</param>
         /// <returns>A boolean indicating if the algorithm was able to decode the compressed coordinates or not.</returns>
-        public static bool TryDecode(string value, out List<GeoDataLocation> parsedValue)
+        public static bool TryDecode(string value, out List<GeodataLocation> parsedValue)
         {
             parsedValue = null;
-            var list = new List<GeoDataLocation>();
+            var list = new List<GeodataLocation>();
             int index = 0;
             int xsum = 0, ysum = 0;
 
@@ -147,7 +147,7 @@ namespace BingMapsSDSToolkit.GeoDataAPI
                 lat = Math.Max(-85, Math.Min(85, lat));
                 lon = Math.Max(-180, Math.Min(180, lon));
 
-                list.Add(new GeoDataLocation(lat, lon));
+                list.Add(new GeodataLocation(lat, lon));
             }
 
             parsedValue = list;

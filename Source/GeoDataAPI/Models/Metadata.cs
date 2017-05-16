@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
     /// An object that contains metadata about a boundary. Not all fields will always be populated.

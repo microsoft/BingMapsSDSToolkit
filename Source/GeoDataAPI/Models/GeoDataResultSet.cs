@@ -1,12 +1,12 @@
 ﻿using System.Runtime.Serialization;
 
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
-    /// A result set from the GeoData API.
+    /// A result set from the Geodata API.
     /// </summary>
     [DataContract]
-    public class GeoDataResultSet
+    public class GeodataResultSet
     {
         /// <summary>
         /// A copyright string.
@@ -15,9 +15,9 @@ namespace BingMapsSDSToolkit.GeoDataAPI
         public string Copyright { get; set; }
 
         /// <summary>
-        /// An array of GeoData boundary results. 
+        /// An array of Geodata boundary results. 
         /// </summary>
         [DataMember(Name = "results", EmitDefaultValue = false)]
-        public GeoDataResult[] Results { get; set; }
+        public GeodataResult[] Results { get; set; }
     }
 }

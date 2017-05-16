@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// Match codes used to indicate the level of match a geocode result has to the original address.

@@ -10,10 +10,17 @@ namespace BingMapsSDSToolkit.DataSourceAPI
     {
         #region Constructor
 
+        /// <summary>
+        /// An object that represents a single data flow job.
+        /// </summary>
         public DataflowJob()
         {
         }
 
+        /// <summary>
+        /// An object that represents a single data flow job.
+        /// </summary>
+        /// <param name="job">A data service job to convert into a DataflowJob.</param>
         public DataflowJob(DataServiceJob job)
         {
             this.Id = job.Id;

@@ -1,4 +1,4 @@
-﻿using BingMapsSDSToolkit.GeocodeDataFlowAPI;
+﻿using BingMapsSDSToolkit.GeocodeDataflowAPI;
 using BingMapsSDSToolkit.Internal;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,9 @@ using System.Xml.Linq;
 
 namespace BingMapsSDSToolkit.DataSourceAPI
 {
+    /// <summary>
+    /// A data source object used for storing a data set. Can be uploaded, downloaded and converted into various file formats.
+    /// </summary>
     public class DataSource
     {
         #region Private Properties
@@ -45,31 +48,45 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             NamespaceHandling = NamespaceHandling.OmitDuplicates
         };
 
-        private List<ColunmHeader> _columnHeaders;
+        private List<ColumnHeader> _columnHeaders;
         private List<List<object>> _rows;
 
         #endregion
 
         #region Constructor
 
+        /// <summary>
+        /// A data source object used for storing a data set. Can be uploaded, downloaded and converted into various file formats.
+        /// </summary>
         public DataSource()
         {
-            _columnHeaders = new List<ColunmHeader>();
+            _columnHeaders = new List<ColumnHeader>();
             _rows = new List<List<object>>();
         }
 
+        /// <summary>
+        /// A data source object used for storing a data set. Can be uploaded, downloaded and converted into various file formats.
+        /// </summary>
+        /// <param name="name">The name of the data source.</param>
+        /// <param name="entityTypeName">The entity type name of the data source.</param>
         public DataSource(string name, string entityTypeName)
         {
-            _columnHeaders = new List<ColunmHeader>();
+            _columnHeaders = new List<ColumnHeader>();
             _rows = new List<List<object>>();
 
             _info.DataSourceName = name;
             _info.EntityTypeName = entityTypeName;
         }
 
+        /// <summary>
+        /// A data source object used for storing a data set. Can be uploaded, downloaded and converted into various file formats.
+        /// </summary>
+        /// <param name="accessId">The accessId of the data source.</param>
+        /// <param name="name">The name of the data source.</param>
+        /// <param name="entityTypeName">The entity type name of the data source.</param>
         public DataSource(string accessId, string name, string entityTypeName)
         {
-            _columnHeaders = new List<ColunmHeader>();
+            _columnHeaders = new List<ColumnHeader>();
             _rows = new List<List<object>>();
 
             _info.AccessId = accessId;
@@ -77,9 +94,13 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             _info.EntityTypeName = entityTypeName;
         }
 
+        /// <summary>
+        /// A data source object used for storing a data set. Can be uploaded, downloaded and converted into various file formats.
+        /// </summary>
+        /// <param name="info">Basic information about the data source.</param>
         public DataSource(BasicDataSourceInfo info)
         {
-            _columnHeaders = new List<ColunmHeader>();
+            _columnHeaders = new List<ColumnHeader>();
             _rows = new List<List<object>>();
             _info = info;
         }
@@ -88,16 +109,25 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
         #region Public Properties
 
+        /// <summary>
+        /// Basic information about the data source.
+        /// </summary>
         public BasicDataSourceInfo Info
         {
             get { return _info; }
         }
 
-        public List<ColunmHeader> ColumnHeaders
+        /// <summary>
+        /// The column header information for the data source.
+        /// </summary>
+        public List<ColumnHeader> ColumnHeaders
         {
             get { return _columnHeaders;  }
         }
 
+        /// <summary>
+        /// The rows of data in the data source.
+        /// </summary>
         public List<List<object>> Rows
         {
             get { return _rows; }
@@ -251,7 +281,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                     colIdx = GetColumnNameIndex(_defaultPrimaryKeyName);
                     if (colIdx == -1)
                     {
-                        _columnHeaders.Add(new ColunmHeader(_defaultPrimaryKeyName, typeof(string)));
+                        _columnHeaders.Add(new ColumnHeader(_defaultPrimaryKeyName, typeof(string)));
                         results.Warnings.Add("Primary key column is not defined in column header. Column added.");
                         primaryKeyAdded = true;
                     }
@@ -266,7 +296,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                 if (colIdx == -1)
                 {
                     results.Warnings.Add("'Latitude' column is not defined in column header. Column added.");
-                    _columnHeaders.Add(new ColunmHeader("Latitude", typeof(double)));
+                    _columnHeaders.Add(new ColumnHeader("Latitude", typeof(double)));
                     latColAdded = true;
                 }
 
@@ -275,7 +305,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                 if (colIdx == -1)
                 {
                     results.Warnings.Add("'Longitude' column is not defined in column header. Column added.");
-                    _columnHeaders.Add(new ColunmHeader("Longitude", typeof(double)));
+                    _columnHeaders.Add(new ColumnHeader("Longitude", typeof(double)));
                     lonColAdded = true;
                 }
 
@@ -596,7 +626,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                     if (keyIdx == -1)
                     {
                         ReportGeocodeStatus("Primary key column is not defined in column header. Column added.");
-                        _columnHeaders.Add(new ColunmHeader(_defaultPrimaryKeyName, typeof(string)));
+                        _columnHeaders.Add(new ColumnHeader(_defaultPrimaryKeyName, typeof(string)));
                         primaryKeyAdded = true;
                     }
                     else
@@ -611,7 +641,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                 if (latIdx == -1)
                 {
                     ReportGeocodeStatus("'Latitude' column is not defined in column header. Column added.");
-                    _columnHeaders.Add(new ColunmHeader("Latitude", typeof(double)));
+                    _columnHeaders.Add(new ColumnHeader("Latitude", typeof(double)));
                     latIdx = GetColumnNameIndex("Latitude");
                 }
 
@@ -619,7 +649,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                 if (lonIdx == -1)
                 {
                     ReportGeocodeStatus("'Longitude' column is not defined in column header. Column added.");
-                    _columnHeaders.Add(new ColunmHeader("Longitude", typeof(double)));
+                    _columnHeaders.Add(new ColumnHeader("Longitude", typeof(double)));
                     lonIdx = GetColumnNameIndex("Longitude");
                 }
 
@@ -783,7 +813,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
         private void ParseDataSource(XDocument doc)
         {
-            _columnHeaders = new List<ColunmHeader>();
+            _columnHeaders = new List<ColumnHeader>();
             _rows = new List<List<object>>();
 
             var schema = doc.Root.FirstNode as XElement;
@@ -826,7 +856,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
                     if (name != null && xmlType != null)
                     {
-                        _columnHeaders.Add(new ColunmHeader(name.Value, ParseXmlPropertyType(xmlType.Value), (!string.IsNullOrEmpty(primaryKeyName) && string.Compare(name.Value, primaryKeyName, StringComparison.OrdinalIgnoreCase) == 0)));
+                        _columnHeaders.Add(new ColumnHeader(name.Value, ParseXmlPropertyType(xmlType.Value), (!string.IsNullOrEmpty(primaryKeyName) && string.Compare(name.Value, primaryKeyName, StringComparison.OrdinalIgnoreCase) == 0)));
                     }
                 }
 
@@ -984,7 +1014,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
         private List<string>ParseColumnHeader(List<string> row)
         {
-            _columnHeaders = new List<ColunmHeader>();
+            _columnHeaders = new List<ColumnHeader>();
             var colNames = new List<String>();
 
             int len = row.Count;
@@ -1072,7 +1102,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                         break;
                 }
 
-                _columnHeaders.Add(new ColunmHeader(name, type, isPrimaryKey));
+                _columnHeaders.Add(new ColumnHeader(name, type, isPrimaryKey));
                 colNames.Add(name);
             }
 

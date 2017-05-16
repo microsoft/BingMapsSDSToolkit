@@ -44,7 +44,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         /// <summary>
         /// A coordinate to use as the starting location of the route. Overrides the StartAddress value if both are specified.
         /// </summary>
-        public GeoDataLocation StartLocation { get; set; }
+        public GeodataLocation StartLocation { get; set; }
 
         /// <summary>
         /// A string address to use as the starting location of the route.
@@ -55,7 +55,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         /// <summary>
         /// A coordinate to use as the end location of the route. Overrides the EndAddress value if both are specified.
         /// </summary>
-        public GeoDataLocation EndLocation { get; set; }
+        public GeodataLocation EndLocation { get; set; }
 
         /// <summary>
         /// A string address to use as the end location of the route.

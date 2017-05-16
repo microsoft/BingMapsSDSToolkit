@@ -31,7 +31,7 @@ namespace BingSDSTestApp.Views
             var outputType = (DataSourceFormat)Enum.Parse(typeof(DataSourceFormat), ((string)(ToFormatCbx.SelectedItem as ComboBoxItem).Content));
 
             string filters, defaultExt;
-            Utilities.GetFileExtensions(inputType, out defaultExt, out filters);
+            FileExtensionUtilities.GetFileExtensions(inputType, out defaultExt, out filters);
 
             var ofd = new OpenFileDialog()
             {
@@ -48,7 +48,7 @@ namespace BingSDSTestApp.Views
                 {
                     if (await dataSource.ReadAsync(s, inputType))
                     {
-                        Utilities.GetFileExtensions(outputType, out defaultExt, out filters);
+                        FileExtensionUtilities.GetFileExtensions(outputType, out defaultExt, out filters);
 
                         var sfd = new SaveFileDialog()
                         {

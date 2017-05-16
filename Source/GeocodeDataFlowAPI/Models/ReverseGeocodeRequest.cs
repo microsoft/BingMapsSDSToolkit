@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// Request information for reverse geocoding a location cooridinate.
@@ -10,7 +10,7 @@ namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
         /// <summary>
         /// The location coordinate to reverse geocode.
         /// </summary>
-        public GeoDataLocation Location { get; set; }
+        public GeodataLocation Location { get; set; }
 
         /// <summary>
         /// A list of Geocode Entity Types to return. This parameter only returns a geocoded address if 

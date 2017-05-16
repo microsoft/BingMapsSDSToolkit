@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
-    /// A tool for retrieving boundary data from the GeoData API.
+    /// A static class for retrieving boundary data from the Geodata API.
     /// </summary>
-    public class GeoDataManager
+    public static class GeodataManager
     {
         /// <summary>
         /// Gets the boundary for the specified request.
@@ -18,7 +18,7 @@ namespace BingMapsSDSToolkit.GeoDataAPI
         /// <param name="bingMapsKey">A bing maps key to authenicate the request.</param>
         /// <exception cref="System.Exception">Thrown when reuqired information is mssing from request, or an error occurs.</exception>
         /// <returns>A list of GetDataResult objects.</returns>
-        public async Task<List<GeoDataResult>> GetBoundary(GetBoundaryRequest request, string bingMapsKey)
+        public static async Task<List<GeodataResult>> GetBoundary(GetBoundaryRequest request, string bingMapsKey)
         {
             if (string.IsNullOrWhiteSpace(bingMapsKey))
             {
@@ -52,15 +52,15 @@ namespace BingMapsSDSToolkit.GeoDataAPI
 
             using (var s = await ServiceHelper.GetStreamAsync(new Uri(requestUrl)))
             {
-                var ser = new DataContractJsonSerializer(typeof(GeoDataResponse));
-                var response = ser.ReadObject(s) as GeoDataResponse;
+                var ser = new DataContractJsonSerializer(typeof(GeodataResponse));
+                var response = ser.ReadObject(s) as GeodataResponse;
 
                 if (response != null &&
                     response.ResultSet != null &&
                     response.ResultSet.Results != null &&
                     response.ResultSet.Results.Length > 0)
                 {
-                    return new List<GeoDataResult>(response.ResultSet.Results);
+                    return new List<GeodataResult>(response.ResultSet.Results);
                 }
             }
 

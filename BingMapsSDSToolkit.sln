@@ -25,6 +25,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingSDSTestApp", "Samples\W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDSToolkitConsoleApp", "Samples\Console\SDSToolkitConsoleApp\SDSToolkitConsoleApp.csproj", "{FE6699B1-E03F-42FD-8555-83D3758D0787}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{FE243BC0-82EA-4C67-9990-2B825B66BB65}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Readme.md = Docs\Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiReference", "ApiReference", "{AEB4529E-4AEF-4D0B-9692-8CFBFF4365BF}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\ApiReference\CommonApiReference.md = Docs\ApiReference\CommonApiReference.md
+		Docs\ApiReference\DataSourceApiReference.md = Docs\ApiReference\DataSourceApiReference.md
+		Docs\ApiReference\GeocodeDataFlowApiReference.md = Docs\ApiReference\GeocodeDataFlowApiReference.md
+		Docs\ApiReference\GeoDataApiReference.md = Docs\ApiReference\GeoDataApiReference.md
+		Docs\ApiReference\QueryApiReference.md = Docs\ApiReference\QueryApiReference.md
+		Docs\ApiReference\Readme.md = Docs\ApiReference\Readme.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,5 +68,6 @@ Global
 		{AC3A8636-6F98-45FB-A675-241E563E90C9} = {0CDF69E3-CE5F-4C8A-A897-9AF27E682AE0}
 		{69E38C4B-4B41-486D-8B01-570C8C1D7FC0} = {AC3A8636-6F98-45FB-A675-241E563E90C9}
 		{FE6699B1-E03F-42FD-8555-83D3758D0787} = {CDEC08CC-3827-459E-87F6-517811CB14A3}
+		{AEB4529E-4AEF-4D0B-9692-8CFBFF4365BF} = {FE243BC0-82EA-4C67-9990-2B825B66BB65}
 	EndGlobalSection
 EndGlobal

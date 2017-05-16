@@ -5,7 +5,7 @@ using System.Linq;
 namespace BingMapsSDSToolkit.QueryAPI
 {
     /// <summary>
-    /// An object the represents a single entity result in the query.
+    /// An object that represents a single entity result in the query.
     /// </summary>
     public class QueryResult
     {
@@ -42,7 +42,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         /// <summary>
         /// The location coordinate of the result.
         /// </summary>
-        public GeoDataLocation Location { get; set; }
+        public GeodataLocation Location { get; set; }
 
         /// <summary>
         /// Indicates if the result has a property of type Geography or not.

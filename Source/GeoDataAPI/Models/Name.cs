@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
     /// An object that contains information about the boundary, such as the name and culture.

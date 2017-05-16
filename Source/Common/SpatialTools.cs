@@ -2,7 +2,10 @@
 
 namespace BingMapsSDSToolkit
 {
-    internal static class SpatialTools
+    /// <summary>
+    /// A set of useful spatial calculation tools.
+    /// </summary>
+    public static class SpatialTools
     {
         #region Earth Related Constants
 
@@ -52,8 +55,8 @@ namespace BingMapsSDSToolkit
                 case DistanceUnitType.Miles:
                     return EarthRadius.Miles;
                 case DistanceUnitType.Yards:
-                    return ConvertDistance(EarthRadius.KM, DistanceUnitType.KM, DistanceUnitType.Yards);
-                case DistanceUnitType.KM:
+                    return ConvertDistance(EarthRadius.KM, DistanceUnitType.Kilometers, DistanceUnitType.Yards);
+                case DistanceUnitType.Kilometers:
                 default:
                     return EarthRadius.KM;
             }
@@ -63,6 +66,13 @@ namespace BingMapsSDSToolkit
 
         #region Distance Conversion
 
+        /// <summary>
+        /// Converts distances from one unit to another.
+        /// </summary>
+        /// <param name="distance">The distance to convert</param>
+        /// <param name="fromUnits">The units of the distance.</param>
+        /// <param name="toUnits">The units to convert to.</param>
+        /// <returns>Distance converted to the specified units.</returns>
         public static double ConvertDistance(double distance, DistanceUnitType fromUnits, DistanceUnitType toUnits)
         {
             //Convert the distance to kilometers
@@ -80,7 +90,7 @@ namespace BingMapsSDSToolkit
                 case DistanceUnitType.Yards:
                     distance *= 0.0009144;
                     break;
-                case DistanceUnitType.KM:
+                case DistanceUnitType.Kilometers:
                     break;
             }
 
@@ -99,7 +109,7 @@ namespace BingMapsSDSToolkit
                 case DistanceUnitType.Yards:
                     distance *= 1093.6133;
                     break;
-                case DistanceUnitType.KM:
+                case DistanceUnitType.Kilometers:
                     break;
             }
 
@@ -141,7 +151,7 @@ namespace BingMapsSDSToolkit
         /// <param name="destination">Second coordinate to calculate distance between.</param>
         /// <param name="units">Unit of distance measurement.</param>
         /// <returns>The shortest distance in the specifed units.</returns>
-        public static double HaversineDistance(GeoDataLocation origin, GeoDataLocation destination, DistanceUnitType units)
+        public static double HaversineDistance(GeodataLocation origin, GeodataLocation destination, DistanceUnitType units)
         {
             return HaversineDistance(origin.Latitude, origin.Longitude, destination.Latitude, destination.Longitude, units);
         }

@@ -7,33 +7,33 @@ namespace BingMapsSDSToolkit.QueryAPI
     public enum LogicalOperator
     {
         ///<summary>
-        ///Equal
-        ///<summary>
+        /// Equal
+        ///</summary>
         Eq,
 
         ///<summary>
-        ///Not equal
-        ///<summary>
+        /// Not equal
+        ///</summary>
         Ne,
 
         ///<summary>
-        ///Greater than
-        ///<summary>
+        /// Greater than
+        ///</summary>
         Gt,
 
         ///<summary>
-        ///Greater than or equal
-        ///<summary>
+        /// Greater than or equal
+        ///</summary>
         Ge,
 
         ///<summary>
-        ///Less than
-        ///<summary>
+        /// Less than
+        ///</summary>
         Lt,
 
         ///<summary>
-        ///Less than or equal
-        ///<summary>
+        /// Less than or equal
+        ///</summary>
         Le,
 
         /// <summary>

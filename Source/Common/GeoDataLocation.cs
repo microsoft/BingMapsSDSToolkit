@@ -7,8 +7,8 @@ namespace BingMapsSDSToolkit
     /// <summary>
     /// An object that stores the coordinate information.
     /// </summary>
-    [KnownType(typeof(BingMapsSDSToolkit.GeocodeDataFlowAPI.GeocodePoint))]
-    public class GeoDataLocation
+    [KnownType(typeof(BingMapsSDSToolkit.GeocodeDataflowAPI.GeocodePoint))]
+    public class GeodataLocation
     {
         #region Private Properties
 
@@ -21,7 +21,7 @@ namespace BingMapsSDSToolkit
         /// <summary>
         /// A location coordinate.
         /// </summary>
-        public GeoDataLocation()
+        public GeodataLocation()
         {
         }
 
@@ -30,7 +30,7 @@ namespace BingMapsSDSToolkit
         /// </summary>
         /// <param name="latitude">Latitude coordinate vlaue.</param>
         /// <param name="longitude">Longitude coordinate value.</param>
-        public GeoDataLocation(double latitude, double longitude)
+        public GeodataLocation(double latitude, double longitude)
         {
             Latitude = latitude;
             Longitude = longitude;

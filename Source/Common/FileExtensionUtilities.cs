@@ -1,10 +1,19 @@
 ﻿using BingMapsSDSToolkit.DataSourceAPI;
-using BingMapsSDSToolkit.GeocodeDataFlowAPI;
+using BingMapsSDSToolkit.GeocodeDataflowAPI;
 
 namespace BingMapsSDSToolkit
 {
-    public static class Utilities
+    /// <summary>
+    /// Useful utilities for working with file extensions.
+    /// </summary>
+    public static class FileExtensionUtilities
     {
+        /// <summary>
+        /// Give a data source format, this method provides a default and file extension filter string. 
+        /// </summary>
+        /// <param name="format">The data source file format to get the extensions for.</param>
+        /// <param name="defaultExt">Default file extension.</param>
+        /// <param name="filters">A file extension filter string</param>
         public static void GetFileExtensions(DataSourceFormat format, out string defaultExt, out string filters)
         {
             switch (format)
@@ -34,6 +43,12 @@ namespace BingMapsSDSToolkit
             }
         }
 
+        /// <summary>
+        /// Give a batch geocoding file format, this method provides a default and file extension filter string. 
+        /// </summary>
+        /// <param name="format">The batch geocoding file file format to get the extensions for.</param>
+        /// <param name="defaultExt">Default file extension.</param>
+        /// <param name="filters">A file extension filter string</param>
         public static void GetFileExtensions(BatchFileFormat format, out string defaultExt, out string filters)
         {
             switch (format)

@@ -3,7 +3,7 @@
 namespace BingMapsSDSToolkit.QueryAPI
 {
     /// <summary>
-    /// An objet that represents the response from a query.
+    /// An object that represents the response from a query.
     /// </summary>
     public class QueryResponse
     {

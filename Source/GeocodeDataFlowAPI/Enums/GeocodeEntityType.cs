@@ -1,5 +1,5 @@
 ﻿
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI.Enums
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// The different entity types a geocode result can have.

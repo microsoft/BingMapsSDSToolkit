@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace BingMapsSDSToolkit.GeoDataAPI
+namespace BingMapsSDSToolkit.GeodataAPI
 {
     /// <summary>
     /// Copyright information.
@@ -9,7 +9,7 @@ namespace BingMapsSDSToolkit.GeoDataAPI
     public class Copyright
     {
         /// <summary>
-        /// The copyright URL for the GeoData service. 
+        /// The copyright URL for the Geodata service. 
         /// </summary>
         [DataMember(Name = "CopyrightURL", EmitDefaultValue = false)]
         public string CopyrightURL { get; set; }

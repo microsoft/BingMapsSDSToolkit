@@ -1,11 +1,11 @@
 ﻿using System.Xml.Serialization;
 
-namespace BingMapsSDSToolkit.GeocodeDataFlowAPI
+namespace BingMapsSDSToolkit.GeocodeDataflowAPI
 {
     /// <summary>
     /// An object that stores the coordinate information.
     /// </summary>
-    public class GeocodePoint : GeoDataLocation
+    public class GeocodePoint : GeodataLocation
     {
         /// <summary>
         /// The method used to calculate the coordinate.
