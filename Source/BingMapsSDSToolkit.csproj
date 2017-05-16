@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1BB76C89-4752-4C8B-B7E3-B3844F3A3CB4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BingMapsSDSToolkit</RootNamespace>
+    <AssemblyName>BingMapsSDSToolkit</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\BingMapsSDSToolkit.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\BingMapsSDSToolkit.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BasicDataSourceInfo.cs" />
+    <Compile Include="Common\Utilities.cs" />
+    <Compile Include="DataSourceAPI\Models\ColunmHeader.cs" />
+    <Compile Include="DataSourceAPI\Models\DataSourceGeocodeResults.cs" />
+    <Compile Include="GeocodeDataFlowAPI\BatchGeocodeManager.cs" />
+    <Compile Include="DataSourceAPI\DataSourceManager.cs" />
+    <Compile Include="DataSourceAPI\Models\DataServiceJob.cs" />
+    <Compile Include="DataSourceAPI\Enums\LoadOperation.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Enums\BatchFileFormat.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Enums\GeocodeEntityType.cs" />
+    <Compile Include="GeoDataAPI\Enums\BoundaryEntityType.cs" />
+    <Compile Include="GeoDataAPI\Models\Copyright.cs" />
+    <Compile Include="GeoDataAPI\Models\CopyrightSource.cs" />
+    <Compile Include="GeoDataAPI\GeoDataManager.cs" />
+    <Compile Include="GeoDataAPI\Models\GeoDataResponse.cs" />
+    <Compile Include="GeoDataAPI\Models\GeoDataResult.cs" />
+    <Compile Include="GeoDataAPI\Models\GeoDataResultSet.cs" />
+    <Compile Include="GeoDataAPI\GetBoundaryRequest.cs" />
+    <Compile Include="GeoDataAPI\Models\Metadata.cs" />
+    <Compile Include="GeoDataAPI\Models\Name.cs" />
+    <Compile Include="GeoDataAPI\Models\GeoDataPolygon.cs" />
+    <Compile Include="GeoDataAPI\PointCompression.cs" />
+    <Compile Include="GeoDataAPI\Models\Primitive.cs" />
+    <Compile Include="Internal\DelimitedFileReader.cs" />
+    <Compile Include="Internal\DelimitedFileWriter.cs" />
+    <Compile Include="Internal\SpatialTools.cs" />
+    <Compile Include="Internal\XmlNamespaces.cs" />
+    <Compile Include="Internal\ServiceHelper.cs" />
+    <Compile Include="Internal\XmlUtilities.cs" />
+    <Compile Include="DataSourceAPI\Models\DataflowJob.cs" />
+    <Compile Include="DataSourceAPI\Models\DataSourceDetails.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Models\Address.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Models\BaseRequest.cs" />
+    <Compile Include="GeocodeDataFlowAPI\BatchGeocoderResults.cs" />
+    <Compile Include="DataSourceAPI\DataSource.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Enums\CalculationMethodTypes.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Enums\ConfidenceTypes.cs" />
+    <Compile Include="DataSourceAPI\Enums\DataSourceFormat.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Models\BoundingBox.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Models\ConfidenceFilter.cs" />
+    <Compile Include="Internal\DownloadDetails.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Enums\MatchCodeTypes.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Models\GeocodeEntity.cs" />
+    <Compile Include="GeocodeDataFlowAPI\GeocodeFeed.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Models\GeocodePoint.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Models\GeocodeRequest.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Models\GeocodeResponse.cs" />
+    <Compile Include="Common\Geography.cs" />
+    <Compile Include="Common\GeoDataLocation.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Models\QueryParseValue.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Models\ReverseGeocodeRequest.cs" />
+    <Compile Include="DataSourceAPI\Models\ValidationResult.cs" />
+    <Compile Include="DataSourceAPI\Models\Link.cs" />
+    <Compile Include="DataSourceAPI\Models\DataflowResultSet.cs" />
+    <Compile Include="DataSourceAPI\Models\DataflowResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GeocodeDataFlowAPI\Enums\QueryParsePropertyTypes.cs" />
+    <Compile Include="Common\DistanceUnitType.cs" />
+    <Compile Include="QueryAPI\Enums\AvoidType.cs" />
+    <Compile Include="QueryAPI\FindInBoundingBoxRequest.cs" />
+    <Compile Include="QueryAPI\FindNearByRequest.cs" />
+    <Compile Include="QueryAPI\FindNearRouteRequest.cs" />
+    <Compile Include="QueryAPI\IntersectionSearchRequest.cs" />
+    <Compile Include="QueryAPI\Models\IFilter.cs" />
+    <Compile Include="QueryAPI\Models\LogicalOperator.cs" />
+    <Compile Include="QueryAPI\Models\FilterGroup.cs" />
+    <Compile Include="QueryAPI\Models\FilterExpression.cs" />
+    <Compile Include="QueryAPI\Models\CompareOperator.cs" />
+    <Compile Include="QueryAPI\FindByPropertyRequest.cs" />
+    <Compile Include="QueryAPI\QueryManager.cs" />
+    <Compile Include="QueryAPI\Enums\RouteOptimizationType.cs" />
+    <Compile Include="QueryAPI\Enums\TravelModeType.cs" />
+    <Compile Include="QueryAPI\Models\QueryResponse.cs" />
+    <Compile Include="QueryAPI\Models\QueryResult.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,444 @@
+﻿<Window x:Class="BingSDSTestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:converters="clr-namespace:BingSDSTestApp.Converters"
+        Title="Bing Maps SDS Explorer" Height="600" Width="800">    
+    
+    <Window.Resources>
+        <converters:VisibilityConverter x:Key="visibilityConverter"/>
+        <converters:VisibilityConverter x:Key="reversedVisibilityConverter" IsReversed="True"/>
+    </Window.Resources>
+
+    <Grid>
+        <TabControl>
+            <TabItem Header="Data Source API">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <Button Content="Data Source Settings" Click="DataSourceAPIDataSourceSettings_Clicked" 
+                            Width="150" Margin="10" HorizontalAlignment="Left"/>
+
+                        <GroupBox Header="Data Source Jobs">
+                            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
+                                <Button Content="Get Job List" Click="GetJobList_Clicked" Margin="10,0"/>
+                                <Button Content="Get Public Data Sources" Click="GetPublicDataSources_Clicked"/>
+                                <Button Content="Get All Data Source Details" Click="GetAllDataSourceDetails_Clicked" Margin="10,0"/>
+                                <Button Content="Get Data Source Details" Click="GetDataSourceDetails_Clicked"/>
+                                
+                                <Button Content="Convert Data Source" Click="ConvertDataSource_Clicked" Margin="10,0"/>
+
+                                <Button Content="Upload Data Source" Click="UploadDataSource_Clicked"/>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Data Source Details">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="5">
+                                    <TextBlock Name="DataSourceTableMessage"/>
+                                </StackPanel>
+
+                                <DataGrid Name="DataSourceTable" MaxHeight="200" Margin="5" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False" VerticalScrollBarVisibility="Auto">
+                                    <!-- Download, Delete, set Public-->
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Access ID" Binding="{Binding AccessId}"/>
+                                        <DataGridTextColumn Header="Data Source Name" Binding="{Binding DataSourceName}"/>
+                                        <DataGridTextColumn Header="Entity Type Name" Binding="{Binding EntityTypeName}"/>
+                                        <DataGridTextColumn Header="Is Active" Binding="{Binding IsActive}" />
+                                        <DataGridTextColumn Header="Is Public" Binding="{Binding IsPublic}"/>
+                                        <DataGridTextColumn Header="Is Staging" Binding="{Binding IsStaging}"/>
+                                        <DataGridTextColumn Header="Updated" Binding="{Binding Updated}"/>
+                                    </DataGrid.Columns>
+
+                                    <DataGrid.RowDetailsTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="5">
+                                                <Button Content="Use with Query API" Width="150" HorizontalAlignment="Left" Tag="{Binding}" Click="UseWithQueryAPI_Clicked"/>
+
+                                                <Button Content="Use with Data Source Settings" Width="150" HorizontalAlignment="Left" Tag="{Binding}" Click="UseDatasourceSettings_Clicked"/>
+                                                
+                                                <StackPanel Orientation="Horizontal" Margin="5"
+                                                            Visibility="{Binding JobId, Converter={StaticResource visibilityConverter}}">
+                                                    <TextBlock Text="Job Id: "/>
+                                                    <TextBlock Text="{Binding JobId}"/>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Margin="5">
+                                                    <TextBlock Text="Query Url: "/>
+                                                    <TextBlock Text="{Binding QueryURL}"/>
+                                                </StackPanel>
+                                                
+                                                <StackPanel Orientation="Horizontal" Margin="5">
+                                                    <TextBlock Text="Description: "/>
+                                                    <TextBlock Text="{Binding Description}"/>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Margin="5" 
+                                                            Visibility="{Binding Disclaimer, Converter={StaticResource visibilityConverter}}">
+                                                    <TextBlock Text="Disclaimer :"/>
+                                                    <TextBlock Text="{Binding Disclaimer}"/>
+                                                </StackPanel>
+
+                                                <StackPanel Visibility="{Binding Disclaimer, Converter={StaticResource reversedVisibilityConverter}}">
+                                                    <StackPanel Orientation="Horizontal" Margin="5"  
+                                                            Visibility="{Binding IsPublic, Converter={StaticResource visibilityConverter}}">
+                                                        <TextBlock Text="Data Source Public"/>
+                                                        <Button Content="Make Private" Click="ChangePrivateSetting_Clicked"
+                                                            Tag="{Binding}" Margin="5,0,0,0"/>
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal" Margin="5"  
+                                                            Visibility="{Binding IsPublic, Converter={StaticResource reversedVisibilityConverter}}">
+                                                        <TextBlock Text="Data Source Private"/>
+                                                        <Button Content="Make Public"  Click="ChangePrivateSetting_Clicked"
+                                                            Tag="{Binding}" Margin="5,0,0,0"/>
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal" Margin="5">
+                                                        <Button Content="Download" Tag="{Binding}" Click="DownloadDataSource_Clicked"/>
+                                                        <Button Content="Delete" Tag="{Binding}" Click="DeleteDataSource_Clicked" Margin="10,0,0,0"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGrid.RowDetailsTemplate>
+                                </DataGrid>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Data Source Job Details">
+                            <DataGrid Name="DataSourceJobs" MaxHeight="200" Margin="5" IsReadOnly="True" CanUserAddRows="False" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Job ID" Binding="{Binding Id}"/>
+                                    <DataGridTextColumn Header="Job Description" Binding="{Binding Description}"/>
+                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                                    <DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDate}"/>
+                                    <DataGridTextColumn Header="Completed Date" Binding="{Binding CompletedDate}"/>
+                                    <DataGridTextColumn Header="Error Message" Binding="{Binding ErrorMessage}"/>
+                                </DataGrid.Columns>
+
+                                <DataGrid.RowDetailsTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="5">
+                                            <StackPanel Visibility="{Binding TotalEntityCount, Converter={StaticResource reversedVisibilityConverter}}">
+                                                <StackPanel Orientation="Horizontal" Margin="5">
+                                                    <TextBlock Text="Total Entity Count"/>
+                                                    <TextBlock Text="{Binding TotalEntityCount}"/>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Margin="5">
+                                                    <TextBlock Text="Processed Entity Count"/>
+                                                    <TextBlock Text="{Binding ProcessedEntityCount}"/>
+                                                </StackPanel>
+
+                                                <StackPanel Orientation="Horizontal" Margin="5">
+                                                    <TextBlock Text="FailedEntityCount"/>
+                                                    <TextBlock Text="{Binding FailedEntityCount}"/>
+                                                </StackPanel>
+                                            </StackPanel>
+
+                                            <DataGrid ItemsSource="{Binding Links}" Margin="0,10" Visibility="{Binding Links, Converter={StaticResource visibilityConverter}}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGrid.RowDetailsTemplate>
+                            </DataGrid>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="Batch Geocode API">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.ColumnSpan="2">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="File Format:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                            <ComboBox Name="BatchFileFormatCbx" Height="25">
+                                <ComboBox.Items>
+                                    <ComboBoxItem Content="XML" IsSelected="True"/>
+                                    <ComboBoxItem Content="CSV"/>
+                                    <ComboBoxItem Content="PIPE"/>
+                                    <ComboBoxItem Content="TAB"/>
+                                </ComboBox.Items>
+                            </ComboBox>
+
+                            <Button Content="Parse Batch File" Click="ParseBatchFile_Clicked" 
+                                Width="150" Margin="10" HorizontalAlignment="Left"/>
+                        
+                            <Button Content="Process Batch Geocode" Click="ProcessBatchGeocode_Clicked" 
+                                Width="150" Margin="10" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        
+                        <TextBlock Text="Status:"/>
+                        <TextBlock Name="BatchGeocodeStatus"/>
+                    </StackPanel>
+                    
+                    <TextBlock Text="Succeeded" Grid.Row="1"/>
+                    <TextBlock Text="Failed" Grid.Row="1" Grid.Column="1"/>
+
+                    <TextBox Name="SucceededBatchGeocodes" Grid.Row="2"/>
+                    <TextBox Name="FailedBatchGeocodes" Grid.Row="2" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            
+            <TabItem Header="Query API" Name="QueryApiTab">
+                <ScrollViewer>
+                    <StackPanel>
+                        <GroupBox Header="Search Options" Margin="5">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Data Source Settings" Click="QueryAPIDataSourceSettings_Clicked" Width="150" Margin="0,0,10,0"/>
+                                
+                                <TextBlock Text="Distance Units:" VerticalAlignment="Center"/>
+                                <ComboBox Name="DistanceUnitCbx" Width="75"  Margin="10,0">
+                                    <ComboBox.Items>
+                                        <ComboBoxItem Content="KM" IsSelected="True"/>
+                                        <ComboBoxItem Content="Miles"/>
+                                        <ComboBoxItem Content="Meters"/>
+                                        <ComboBoxItem Content="Feet"/>
+                                        <ComboBoxItem Content="Yards"/>
+                                    </ComboBox.Items>
+                                </ComboBox>
+
+                                <TextBlock Text="Top:" VerticalAlignment="Center"/>
+                                <ComboBox Name="TopCbx" Width="50" Margin="10,0">
+                                    <ComboBox.Items>
+                                        <ComboBoxItem Content="5"/>
+                                        <ComboBoxItem Content="25" IsSelected="True"/>
+                                        <ComboBoxItem Content="50"/>
+                                        <ComboBoxItem Content="100"/>
+                                    </ComboBox.Items>
+                                </ComboBox>
+                            </StackPanel>
+                        </GroupBox>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <GroupBox Header="Find By ID" BorderBrush="Black" Margin="5">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                    <TextBlock Text="IDs:"/>
+                                    <TextBox Name="FindByIdTbx" Text="-7094,-7101,-7103" Width="150" Margin="10,0"/>
+                                </StackPanel>
+                            
+                                <Button Content="Find By ID" Click="FindByID_Clicked" Width="100" Margin="0,10"/>
+                            </StackPanel>
+                        </GroupBox>
+
+                            <GroupBox Header="Intersection Search" BorderBrush="Black" Margin="5">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                        <TextBlock Text="Well Known Text:"/>
+                                        <TextBox Name="WKTIntersectionTbx" Text="POLYGON((-74.00786 40.70318,-73.99674 40.70933,-73.97902 40.71099,-73.97421 40.72203,-74.0069 40.72452,-74.01692 40.70412,-74.01418 40.70058,-74.00786 40.70318))" Width="150" Margin="10,0"/>
+                                    </StackPanel>
+
+                                    <Button Content="Intersection Search" Click="IntersectionSearch_Clicked" Width="120" Margin="0,10"/>
+                                </StackPanel>
+                            </GroupBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">                           
+                            <GroupBox Header="Find Near By" BorderBrush="Black" Margin="5">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                                        <TextBlock Text="Distance:"/>
+                                        <ComboBox Name="DistanceCbx" Width="50" Margin="10,0,0,0">
+                                            <ComboBox.Items>
+                                                <ComboBoxItem Content="5"/>
+                                                <ComboBoxItem Content="25" IsSelected="True"/>
+                                                <ComboBoxItem Content="50"/>
+                                                <ComboBoxItem Content="100"/>
+                                            </ComboBox.Items>
+                                        </ComboBox>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Latitude:"/>
+                                        <TextBox Name="FNBLatTbx" Text="40.782" Width="100" Margin="10,0"/>
+                                        <TextBlock Text="Longitude:"/>
+                                        <TextBox Name="FNBLonTbx" Text="-73.831" Width="100" Margin="10,0"/>
+                                    </StackPanel>
+
+                                    <TextBlock Text="OR" Margin="10" HorizontalAlignment="Center"/>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Address: "/>
+                                        <TextBox Name="FNBAddressTbx" Text="New York, NY" Width="150" Margin="10,0"/>
+                                    </StackPanel>
+
+                                    <Button Content="Find Near By" Click="FindNearBy_Clicked" Width="100" Margin="0,10"/>
+                                </StackPanel>
+                            </GroupBox>
+
+                            <GroupBox Header="Find In Bounding Box" BorderBrush="Black" Margin="5">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                                        <TextBlock Text="North:"/>
+                                        <TextBox Name="FibbNorthTbx" Text="90" Width="100" Margin="10,0"/>
+                                        <TextBlock Text="West:"/>
+                                        <TextBox Name="FibbWestTbx" Text="-180" Width="100" Margin="10,0"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="South:"/>
+                                        <TextBox Name="FibbSouthTbx" Text="-90" Width="100" Margin="10,0"/>
+                                        <TextBlock Text="East:"/>
+                                        <TextBox Name="FibbEastTbx" Text="180" Width="100" Margin="10,0"/>
+                                    </StackPanel>
+
+                                    <Button Content="Find In Bounding Box" Width="150" Margin="0,10" Click="FindInBoundingBox_Clicked"/>
+                                </StackPanel>
+                            </GroupBox>
+                        </StackPanel>
+
+                        <GroupBox Header="Find Near Route" BorderBrush="Black" Margin="5">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Travel Mode:" VerticalAlignment="Center"/>
+                                    <ComboBox Name="TravelModeCbx" Width="70"  Margin="10,0">
+                                        <ComboBox.Items>
+                                            <ComboBoxItem Content="Driving" IsSelected="True"/>
+                                            <ComboBoxItem Content="Walking"/>
+                                        </ComboBox.Items>
+                                    </ComboBox>
+
+                                    <TextBlock Text="Route Optimization:" VerticalAlignment="Center"/>
+                                    <ComboBox Name="RouteOptimizationCbx" Width="120"  Margin="10,0">
+                                        <ComboBox.Items>
+                                            <ComboBoxItem Content="Distance"/>
+                                            <ComboBoxItem Content="Time" IsSelected="True"/>
+                                            <ComboBoxItem Content="TimeWithTraffic"/>
+                                        </ComboBox.Items>
+                                    </ComboBox>
+                                </StackPanel>
+
+                                <TextBlock Text="Start:" FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Latitude:"/>
+                                    <TextBox Name="FNRSLatTbx" Text="40.755" Width="100" Margin="10,0"/>
+                                    <TextBlock Text="Longitude:"/>
+                                    <TextBox Name="FNRSLonTbx" Text="-73.95737" Width="100" Margin="10,0"/>
+                                </StackPanel>
+
+                                <TextBlock Text="OR" Margin="10" HorizontalAlignment="Center"/>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Address: "/>
+                                    <TextBox Name="FNRSAddressTbx" Text="1 Main St, New York, NY" Width="150" Margin="10,0"/>
+                                </StackPanel>
+
+                                <TextBlock Text="End:" Margin="0,10,0,0" FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Latitude:"/>
+                                    <TextBox Name="FNRELatTbx" Text="40.713056" Width="100" Margin="10,0"/>
+                                    <TextBlock Text="Longitude:"/>
+                                    <TextBox Name="FNRELonTbx" Text="-74.01132" Width="100" Margin="10,0"/>
+                                </StackPanel>
+
+                                <TextBlock Text="OR" Margin="10" HorizontalAlignment="Center"/>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Address: "/>
+                                    <TextBox Name="FNREAddressTbx" Text="10 W Broadway, New York, NY" Width="150" Margin="10,0"/>
+                                </StackPanel>
+
+                                <Button Content="Find Near Route" Width="150" Margin="0,10" Click="FindNearRoute_Clicked"/>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="GeoData API">
+                <StackPanel Orientation="Horizontal">
+                    <GroupBox Header="Get Boundary" BorderBrush="Black" Margin="5">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Latitude:"/>
+                                <TextBox Name="GeoDataLatTbx" Text="40.782" Width="100" Margin="10,0"/>
+                                <TextBlock Text="Longitude:"/>
+                                <TextBox Name="GeoDataLonTbx" Text="-73.831" Width="100" Margin="10,0"/>
+                            </StackPanel>
+
+                            <TextBlock Text="OR" Margin="10" HorizontalAlignment="Center"/>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Address: "/>
+                                <TextBox Name="GeoDataAddressTbx" Text="New York, NY" Width="150" Margin="10,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,10">
+                                <TextBlock Text="Entity Type:" VerticalAlignment="Center"/>
+                                <ComboBox Name="GeoDataEntityTypeCbx" Width="150" Margin="10,0">
+                                    <ComboBox.Items>
+                                        <ComboBoxItem Content="AdminDivision1"/>
+                                        <ComboBoxItem Content="AdminDivision2"/>
+                                        <ComboBoxItem Content="CountryRegion" IsSelected="True"/>
+                                        <ComboBoxItem Content="Neighborhood"/>
+                                        <ComboBoxItem Content="PopulatedPlace"/>
+                                        <ComboBoxItem Content="Postcode1"/>
+                                        <ComboBoxItem Content="Postcode2"/>
+                                        <ComboBoxItem Content="Postcode3"/>
+                                        <ComboBoxItem Content="Postcode4"/>
+                                    </ComboBox.Items>
+                                </ComboBox>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Level of Detail:" VerticalAlignment="Center"/>
+                                <ComboBox Name="GeoDataLevelOfDetailCbx" Width="50" Margin="10,0">
+                                    <ComboBox.Items>
+                                        <ComboBoxItem Content="0" IsSelected="True"/>
+                                        <ComboBoxItem Content="1"/>
+                                        <ComboBoxItem Content="2"/>
+                                        <ComboBoxItem Content="3"/>
+                                    </ComboBox.Items>
+                                </ComboBox>
+
+                                <TextBlock Text="Region:" VerticalAlignment="Center"/>
+                                <ComboBox Name="GeoDataRegionCbx" Width="75" Margin="10,0">
+                                    <ComboBox.Items>
+                                        <ComboBoxItem Content="AR"/>
+                                        <ComboBoxItem Content="CN"/>
+                                        <ComboBoxItem Content="IN"/>
+                                        <ComboBoxItem Content="PK"/>
+                                        <ComboBoxItem Content="US" IsSelected="True"/>
+                                    </ComboBox.Items>
+                                </ComboBox>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,10">
+                                <CheckBox Name="GeoDataGetPolysChbx" IsChecked="True" Content="Get All Polygons"/>
+                                <CheckBox Name="GeoDataGetMetadataChbx" IsChecked="True" Content="Get Metadata Polygons" Margin="10,0,0,0"/>
+                            </StackPanel>
+
+                            <Button Content="Get Boundary" Click="GetGeoDataBoundary_Clicked" Width="100"/>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Output" Name="OutputTab">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <m:Map Name="MyMap"/>
+                    <TextBox Name="OutputTbx" Grid.Row="1" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Grid Name="LoadingPanel" Background="Black" Opacity="0.5" Visibility="Collapsed">
+            <ProgressBar Height="30" Width="200" IsIndeterminate="True"/>
+        </Grid>
+    </Grid>
+</Window>

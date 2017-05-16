@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata>
+        <id>BingMapsSDSToolkit</id>
+        <version>1.0.0</version>
+        <title>Bing Maps SDS Toolkit</title>
+        <authors>Microsoft</authors>
+        <owners>microsoft bingmaps</owners>
+        <licenseUrl>https://github.com/Microsoft/BingMapsSDSToolkit/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/Microsoft/BingMapsSDSToolkit</projectUrl>
+        <iconUrl>https://www.bing.com/sa/simg/bing_p_rr_teal_min.ico</iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>This is a portable class library which makes it easy to access the Bing Maps Spatial Data Services from .NET.</description>
+        <summary>This is a portable class library which makes it easy to access the Bing Maps Spatial Data Services  services from .NET.</summary>
+        <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+        <tags>Microsoft "Bing Maps" Maps GIS Map Geospatial VB C# .NET REST</tags>
+        <dependencies>
+            <dependency id="Microsoft.Bcl.Compression" version="3.9.85" />
+        </dependencies>
+        <references>
+            <group targetFramework=".NETFramework4.5">
+                <reference file="BingMapsSDSToolkit.dll" />
+            </group>
+            <group targetFramework="WindowsPhone8.0">
+                <reference file="BingMapsSDSToolkit.dll" />
+            </group>
+            <group targetFramework=".NETCore4.5">
+                <reference file="BingMapsSDSToolkit.dll" />
+            </group>
+            <group targetFramework=".NETPortable0.0-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10">
+                <reference file="BingMapsSDSToolkit.dll" />
+            </group>
+            <group targetFramework="Unsupported0.0">
+                <reference file="BingMapsSDSToolkit.dll" />
+                <reference file="BingMapsSDSToolkit.dll" />
+            </group>
+            <group targetFramework="WindowsPhone8.1">
+                <reference file="BingMapsSDSToolkit.dll" />
+            </group>
+            <group targetFramework="Windows4.5.1">
+                <reference file="BingMapsSDSToolkit.dll" />
+            </group>
+        </references>
+    </metadata>
+    <files>
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.dll" target="lib\dotnet\BingMapsSDSToolkit.dll" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.pdb" target="lib\dotnet\BingMapsSDSToolkit.pdb" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.XML" target="lib\dotnet\BingMapsSDSToolkit.XML" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.dll" target="lib\net45\BingMapsSDSToolkit.dll" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.pdb" target="lib\net45\BingMapsSDSToolkit.pdb" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.XML" target="lib\net45\BingMapsSDSToolkit.XML" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.dll" target="lib\portable-net45+wp8+win8\BingMapsSDSToolkit.dll" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.pdb" target="lib\portable-net45+wp8+win8\BingMapsSDSToolkit.pdb" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.XML" target="lib\portable-net45+wp8+win8\BingMapsSDSToolkit.XML" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.dll" target="lib\uap10.0\BingMapsSDSToolkit.dll" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.pdb" target="lib\uap10.0\BingMapsSDSToolkit.pdb" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.XML" target="lib\uap10.0\BingMapsSDSToolkit.XML" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.dll" target="lib\wpa81\BingMapsSDSToolkit.dll" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.pdb" target="lib\wpa81\BingMapsSDSToolkit.pdb" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.XML" target="lib\wpa81\BingMapsSDSToolkit.XML" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.dll" target="lib\xamarinios\BingMapsSDSToolkit.dll" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.pdb" target="lib\xamarinios\BingMapsSDSToolkit.pdb" />
+        <file src="..\Source\bin\Release\BingMapsSDSToolkit.XML" target="lib\xamarinios\BingMapsSDSToolkit.XML" />
+    </files>
+</package>

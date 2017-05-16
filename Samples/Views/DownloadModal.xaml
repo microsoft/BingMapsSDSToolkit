@@ -1,0 +1,46 @@
+﻿<Window x:Class="BingSDSTestApp.Views.DownloadModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Download Data Source" Height="200" Width="350">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Access ID:"/>
+        <TextBox Name="AccessIDTbx" Text="{Binding AccessId}" Grid.Column="1"/>
+
+        <TextBlock Text="Data Source Name:" Grid.Row="1"/>
+        <TextBox Name="DataSourceNameTbx" Text="{Binding DataSourceName}" Grid.Row="1" Grid.Column="1"/>
+
+        <TextBlock Text="Master Key:" Grid.Row="2"/>
+        <TextBox Name="MasterKeyTbx" Text="{Binding MasterKey}" Grid.Row="2" Grid.Column="1"/>
+
+        <TextBlock Text="File Format:" Grid.Row="3"/>
+        <ComboBox Name="DataSourceFormatCbx" Grid.Row="3" Grid.Column="1">
+            <ComboBox.Items>
+                <ComboBoxItem Content="XML" IsSelected="True"/>
+                <ComboBoxItem Content="CSV"/>
+                <ComboBoxItem Content="PIPE"/>
+                <ComboBoxItem Content="TAB"/>
+            </ComboBox.Items>
+        </ComboBox>
+
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Height="30" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Button Content="Download" Padding="5" Click="Ok_Clicked" />
+            <Button Content="Cancel" Padding="5" Margin="10,0,0,0" Click="Cancel_Clicked"/>
+        </StackPanel>
+
+        <Grid Name="LoadingPanel" Visibility="Collapsed" Grid.ColumnSpan="10" Grid.RowSpan="12">
+            <Border Background="Black" Opacity="0.5"/>
+            <ProgressBar Height="30" Width="200" VerticalAlignment="Center" IsIndeterminate="True" Margin="10"/>
+        </Grid>
+    </Grid>
+</Window>
