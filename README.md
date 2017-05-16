@@ -20,7 +20,7 @@ This is a portable .NET class library which provides a set of tools that make it
 
 If you are working with the Bing Maps REST services which provides; on-demand forward and reverse geocoding, routing, static imagery, traffic and elevation data, take a look at the [Bing Maps REST Toolkit](https://github.com/Microsoft/BingMapsRESTToolkit).
 
-This toolkit tries to align with the naming conventions used in the [documentation](https://msdn.microsoft.com/en-us/library/ff701734.aspx) for the Bing Spatial Data Services as much as possible. Additionally, the [MainWindow.xaml.cs](https://www.nuget.org/packages/BingMapsSDSToolkit/master/Samples/MainWindow.xaml.cs) file of the BingSDSTestApp contains code samples on how to use all features of this toolkit.
+This toolkit is based on the [documentation for the Bing Maps Spatial Data Services](https://msdn.microsoft.com/en-us/library/ff701734.aspx). 
 
 **Dependancy:** [Microsoft.Bcl.Compression](https://www.nuget.org/packages/Microsoft.Bcl.Compression)
 
