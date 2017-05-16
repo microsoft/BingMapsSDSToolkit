@@ -18,7 +18,7 @@ This is a portable .NET class library which provides a set of tools that make it
 * **Public Data sources**: Access public data sources that contain information such as points of interest and census data.
 * **Boundary Data**: Access to administrative boundary data via the Geodata API. Boundary data types available vary from country to country. Supported boundary types; zip/postal codes, neighborhoods, cities, counties, states/provinces, countries, and continents.
 
-See the [documenttion](Docs/readme.md) for more information on how to use this library. This toolkit is based on the [documentation for the Bing Maps Spatial Data Services](https://msdn.microsoft.com/en-us/library/ff701734.aspx). 
+See the [documentation](Docs/Readme.md) for more information on how to use this library. This toolkit is based on the [documentation for the Bing Maps Spatial Data Services](https://msdn.microsoft.com/en-us/library/ff701734.aspx). 
 
 If you are working with the Bing Maps REST services which provides; on-demand forward and reverse geocoding, routing, static imagery, traffic and elevation data, take a look at the [Bing Maps REST Toolkit](https://github.com/Microsoft/BingMapsRESTToolkit).
 
