@@ -7,16 +7,16 @@
 
 This is a portable .NET class library which provides a set of tools that make it easy to access the Bing Maps Spatial Data Services in .NET based apps. The Bing Maps Spatial Data Services provides the following key functionalities:
 
-* Batch forward and reverse Geocoding of up to 200,000 rows of data in a single request.
-* Ability to upload a two dimensional table of data as a data source and expose it as a spatial REST service. 
-* Access public data sources that contain information such as points of interest and census data.
-* Perform spatial queries against data sources using:
-	* Find Nearby (radial)
-	* Find in bounding box
-	* Find by Property
-	* Find along a route
-	* Intersection search (i.e. search within a custom shape.)
-* Access to administrative boundary data via the GeoData API. Boundary data types available vary from country to country. Supported boundary types; zip/postal codes, neighborhoods, cities, counties, states/provinces, countries, and continents.
+* **Batch forward and reverse Geocoding** of up to 200,000 rows of data in a single request.
+* **Spatial data hosting and services**: Upload a two dimensional table of data as a data source and expose it as a spatial REST service. 
+	* Perform spatial queries against data sources using:
+		* Find Nearby (radial)
+		* Find in bounding box
+		* Find by Property
+		* Find along a route
+		* Intersection search (i.e. search within a custom shape.)
+* **Public Data sources**: Access public data sources that contain information such as points of interest and census data.
+* **Boundary Data**: Access to administrative boundary data via the GeoData API. Boundary data types available vary from country to country. Supported boundary types; zip/postal codes, neighborhoods, cities, counties, states/provinces, countries, and continents.
 
 If you are working with the Bing Maps REST services which provides; on-demand forward and reverse geocoding, routing, static imagery, traffic and elevation data, take a look at the [Bing Maps REST Toolkit](https://github.com/Microsoft/BingMapsRESTToolkit).
 
