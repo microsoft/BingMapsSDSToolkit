@@ -1,4 +1,4 @@
-﻿# Contributing to the Bing Maps REST Services Toolkit #
+# Contributing to the Bing Maps Spatial Data Services Toolkit #
 
 ## Code of Conduct ##
 
