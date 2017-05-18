@@ -11,11 +11,11 @@ All of these API's have a manager class in the toolkit which is used to process 
 
 ## BingMapsSDSToolkit API References
 
-* [Common API Reference](CommonApiReference.md)
-* [Data Source API Reference](DataSourceApiReference.md)
-* [Geocode Dataflow API Reference](GeocodeDataFlowApiReference.md)
-* [Geodata API Reference](GeodataApiReference.md)
-* [Query API Reference](QueryApiReference.md)
+* [Common API Reference](ApiReference/CommonApiReference.md)
+* [Data Source API Reference](ApiReference/DataSourceApiReference.md)
+* [Geocode Dataflow API Reference](ApiReference/GeocodeDataFlowApiReference.md)
+* [Geodata API Reference](ApiReference/GeodataApiReference.md)
+* [Query API Reference](ApiReference/QueryApiReference.md)
 
 <a name="DataSourceAPI"></a>
 ## Data Source API
