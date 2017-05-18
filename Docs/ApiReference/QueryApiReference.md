@@ -6,6 +6,25 @@ This API provides the ability to perform spatial queries against data sources ho
 
 [MSDN API Documentation](https://msdn.microsoft.com/en-us/library/gg585126.aspx)
 
+The following classes and enumerators are used by the Query API.
+
+* [AvoidType Enumerator](#avoidtype-enumerator)
+* [CompareOperator Enumerator](#compareoperator-enumerator)
+* [FilterExpression Class](#filterexpression-class)
+* [FilterGroup Class](#filtergroup-class)
+* [FindByPropertyRequest Class](#findbypropertyrequest-class)
+* [FindInBoundingBoxRequest Class](#findinboundingboxrequest-class)
+* [FindNearByRequest Class](#findnearbyrequest-class)
+* [FindNearRouteRequest Class](#findnearrouterequest-class)
+* [IFilter Interface](#ifilter-interface)
+* [IntersectionSearchRequest Class](#intersectionsearchrequest-class)
+* [LogicalOperator Enumerator](#logicaloperator-enumerator)
+* [QueryManager Class](#querymanager-class)
+* [QueryResponse Class](#queryresponse-class)
+* [QueryResult Class](#queryresult-class)
+* [RouteOptimizationType Enumerator](#routeoptimizationtype-enumerator)
+* [TravelModeType Enumerator](#travelmodetype-enumerator)
+
 ## AvoidType Enumerator
 
 Specifies the road types to minimize or avoid when the route is created for the driving travel mode.
