@@ -6,6 +6,22 @@ This API provides the ability to upload and manage data sources in the Bing Spat
 
 [MSDN API Documentation](https://msdn.microsoft.com/en-us/library/gg585132.aspx)
 
+The following classes and enumerators are used by the Data Source API.
+
+* [ColumnHeader Class](#columnheader-class)
+* [DataflowJob Class](#dataflowjob-class)
+* [DataflowResponse Class](#dataflowresponse-class)
+* [DataflowResultSet Class](#dataflowresultset-class)
+* [DataServiceJob Class](#dataservicejob-class)
+* [DataSource Class](#datasource-class)
+* [DataSourceDetails Class](#datasourcedetails-class)
+* [DataSourceFormat Enumerator](#datasourceformat-enumerator)
+* [DataSourceGeocodeResults Class](#datasourcegeocoderesults-class)
+* [DataSourceManager Class](#datasourcemanager-class)
+* [Link Class](#link-class)
+* [LoadOperation Enumerator](#loadoperation-enumerator)
+* [ValidationResult Class](#validationresult-class)
+
 ## ColumnHeader Class
 
 Data source column header information.
