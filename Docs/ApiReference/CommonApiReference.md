@@ -5,7 +5,7 @@
 The following classes and enumerators are used through out the Bing Maps Spatial Data Services toolkit. 
 
 * [BasicDataSourceInfo Class](#basicdatasourceinfo-class)
-* [DistanceUnitType Enumerator](distanceunittype-enumerator)
+* [DistanceUnitType Enumerator](#distanceunittype-enumerator)
 * [FileExtensionUtilities Class](#fileextensionutilities-class)
 * [GeodataLocation Class](#geodatalocation-class)
 * [Geography Class](#geography-class)
