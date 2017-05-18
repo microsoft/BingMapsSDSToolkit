@@ -6,6 +6,28 @@ This API provides the ability to batch forward or reverse geocode up to 200,000 
 
 [MSDN API Documentation](https://msdn.microsoft.com/en-us/library/ff701733.aspx)
 
+The following classes and enumerators are used by the Geocode Data Flow API.
+
+* [Address Class](#address-class)
+* [BaseRequest Class](#baserequest-class)
+* [BatchFileFormat Enumerator](#batchfileformat-enumerator)
+* [BatchGeocodeManager Class](#batchgeocodemanager-class)
+* [BatchGeocoderResults Class](#batchgeocoderresults-class)
+* [BoundingBox Class](#boundingbox-class)
+* [CalculationMethodTypes Enumerator](#calculationmethodtypes-enumerator)
+* [ConfidenceFilter Class](#confidencefilter-class)
+* [ConfidenceTypes Class](#confidencetypes-class)
+* [GeocodeEntityType Class](#geocodeentitytype-class)
+* [GeocodeEntity Class](#geocodeentity-class)
+* [GeocodeFeed Class](#geocodefeed-class)
+* [GeocodePoint Class](#geocodepoint-class)
+* [GeocodeRequest Class](#geocoderequest-class)
+* [GeocodeResponse Class](#geocoderesponse-class)
+* [MatchCodeTypes Class](#matchcodetypes-class)
+* [QueryParsePropertyTypes Class](#queryparsepropertytypes-class)
+* [QueryParseValue Class](#queryparsevalue-class)
+* [ReverseGeocodeRequest Class](#reversegeocoderequest-class)
+
 ## Address Class
 
 ### Properties
