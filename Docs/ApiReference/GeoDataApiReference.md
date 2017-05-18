@@ -6,6 +6,22 @@ This API provides access to geographical boundary data such as a country/region,
 
 [MSDN API Documentation](https://msdn.microsoft.com/en-us/library/dn306801.aspx)
 
+The following classes and enumerators are used by the GeoData API.
+
+* [BoundaryEntityType Enumerator](#boundaryentitytype-enumerator)
+* [Copyright Class](#copyright-class)
+* [CopyrightSource Class](#copyrightsource-class)
+* [GeodataManager Class](#geodatamanager-class)
+* [GeodataPolygon Class](#geodatapolygon-class)
+* [GeodataResponse Class](#geodataresponse-class)
+* [GeodataResult Class](#geodataresult-class)
+* [GeodataResultSet Class](#geodataresultset-class)
+* [GetBoundaryRequest Class](#getboundaryrequest-class)
+* [Metadata Class](#metadata-class)
+* [Name Class](#name-class)
+* [PointCompression Class](#pointcompression-class)
+* [Primitive Class](#primitive-class)
+
 <a name="BoundaryEntityType"></a>
 ## BoundaryEntityType Enumerator
 
@@ -126,7 +142,7 @@ An object the contains the request information for retrieving a boundary.
 | GetAllPolygons | Boolean | Specifies whether the response should include all of the boundary polygons for the requested entity or just return a single polygon that represents the main outline of the entity. |
 | GetEntityMetadata | Boolean | Specifies whether the response should include metadata about the entity, such as AreaSqKm and others. |
 | LevelOfDetail | Int32 | The level of detail for the boundary polygons returned. An integer between 0 and 3, where 0 specifies the coarsest level of boundary detail and 3 specifies the best. Default: 0. |
-| UserRegion | String | Specifies the userís home country or region. Default: US |
+| UserRegion | String | Specifies the user‚Äôs home country or region. Default: US |
 
 ## Metadata Class
 
@@ -178,7 +194,7 @@ An object that stores the information for a single polygon in the boundary.
 | ---- | ---- | ----------- |
 | NumPoints | String | The number of vertex points used to define the polygon. |
 | PrimitiveID | String | A unique ID associated with this polygon primitive. |
-| Shape | String | A comma-delimited sequence starting with the version number of the polygon set followed by a list of compressed polygon ìringsî (closed paths represented by sequences of latitude and-longitude points) ordered as follows: <br/><br/>[version],[compressed polygon ring 1],[compressed polygon ring 2],...,[compressed polygon ring n]<br/><br/>See the Decompression Algorithm below for code to use to retrieve the polygon points from the compressed strings. |
+| Shape | String | A comma-delimited sequence starting with the version number of the polygon set followed by a list of compressed polygon ‚Äúrings‚Äù (closed paths represented by sequences of latitude and-longitude points) ordered as follows: <br/><br/>[version],[compressed polygon ring 1],[compressed polygon ring 2],...,[compressed polygon ring n]<br/><br/>See the Decompression Algorithm below for code to use to retrieve the polygon points from the compressed strings. |
 | SourceID | String | An ID identifying the data provider that supplied the data. This ID number will reference one of the sources listed in the CopyrightSources collection attached to the parent entity . |
 
 ### Methods
