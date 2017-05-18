@@ -19,7 +19,7 @@ Basic information about a data source
 | EntityTypeName | String | Name of the Entity type of the data source. |
 | MasterKey | String | The master Bing Maps key for editting a data source. |
 | QueryKey | String | The query Bing Maps key for querying a data source. |
-| QueryURL | String | The query URL for accessing the data source. |
+| QueryUrl | String | The query URL for accessing the data source. |
 
 ## DistanceUnitType Enumerator
 

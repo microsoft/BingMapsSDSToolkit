@@ -239,7 +239,7 @@ A data source job link.
 | ---- | ---- | ----------- |
 | Name | String | The name of the link. |
 | Role | String | The role of the link. |
-| URL | String | The URL of the link. |
+| Url | String | The URL of the link. |
 
 ## LoadOperation Enumerator
 

@@ -42,10 +42,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
     {
         #region Private Properties
 
-        private BasicDataSourceInfo _info = new BasicDataSourceInfo(){
-            DataSourceName = "EntityDataSet",
-            EntityTypeName = "Entity"
-        };
+        private BasicDataSourceInfo _info;
 
         private string _defaultPrimaryKeyName = "EntityID";
 
@@ -86,6 +83,22 @@ namespace BingMapsSDSToolkit.DataSourceAPI
         {
             _columnHeaders = new List<ColumnHeader>();
             _rows = new List<List<object>>();
+            _info = new BasicDataSourceInfo()
+            {
+                DataSourceName = "EntityDataSet",
+                EntityTypeName = "Entity"
+            };
+        }
+
+        /// <summary>
+        /// A data source object used for storing a data set. Can be uploaded, downloaded and converted into various file formats.
+        /// </summary>
+        /// <param name="queryUrl">A url that is used to query a data source. This is parsed into it's individual components; accessID, name, entityTypeName</param>
+        public DataSource(string queryUrl)
+        {
+            _columnHeaders = new List<ColumnHeader>();
+            _rows = new List<List<object>>();
+            _info = new BasicDataSourceInfo(queryUrl);
         }
 
         /// <summary>
@@ -97,9 +110,11 @@ namespace BingMapsSDSToolkit.DataSourceAPI
         {
             _columnHeaders = new List<ColumnHeader>();
             _rows = new List<List<object>>();
-
-            _info.DataSourceName = name;
-            _info.EntityTypeName = entityTypeName;
+            _info = new BasicDataSourceInfo()
+            {
+                DataSourceName = name,
+                EntityTypeName = entityTypeName
+            };
         }
 
         /// <summary>
@@ -113,9 +128,12 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             _columnHeaders = new List<ColumnHeader>();
             _rows = new List<List<object>>();
 
-            _info.AccessId = accessId;
-            _info.DataSourceName = name;
-            _info.EntityTypeName = entityTypeName;
+            _info = new BasicDataSourceInfo()
+            {
+                AccessId = accessId,
+                DataSourceName = name,
+                EntityTypeName = entityTypeName
+            };
         }
 
         /// <summary>

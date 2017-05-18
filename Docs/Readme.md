@@ -333,7 +333,7 @@ This example searchs for all results that has an "entityId" column value of "1",
 //Specify the data source to query and the Bing Maps key to use to access the data source.
 var _queryApiDataSourceSettings = new BasicDataSourceInfo()
 {
-	QueryURL = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
+	QueryUrl = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
 	QueryKey = "YourBingMapsKey"
 };
 
@@ -357,7 +357,7 @@ This example searches for results that are within 45 kilometers of "Seattle, WA"
 //Specify the data source to query and the Bing Maps key to use to access the data source.
 var _queryApiDataSourceSettings = new BasicDataSourceInfo()
 {
-	QueryURL = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
+	QueryUrl = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
 	QueryKey = "YourBingMapsKey"
 };
 
@@ -383,7 +383,7 @@ This example searches for results that are in a bounding box.
 //Specify the data source to query and the Bing Maps key to use to access the data source.
 var _queryApiDataSourceSettings = new BasicDataSourceInfo()
 {
-	QueryURL = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
+	QueryUrl = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
 	QueryKey = "YourBingMapsKey"
 };
 
@@ -410,7 +410,7 @@ This example searches for results that are within 1 mile of a driving route that
 //Specify the data source to query and the Bing Maps key to use to access the data source.
 var _queryApiDataSourceSettings = new BasicDataSourceInfo()
 {
-	QueryURL = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
+	QueryUrl = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
 	QueryKey = "YourBingMapsKey"
 };
 
@@ -438,7 +438,7 @@ This example finds all results that intersect with a point geometry at (45, -110
 //Specify the data source to query and the Bing Maps key to use to access the data source.
 var _queryApiDataSourceSettings = new BasicDataSourceInfo()
 {
-	QueryURL = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
+	QueryUrl = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
 	QueryKey = "YourBingMapsKey"
 };
 

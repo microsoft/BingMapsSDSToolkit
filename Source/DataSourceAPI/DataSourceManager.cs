@@ -243,7 +243,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             {
                 ValidateProperties(accessId, dataSourceName, masterKey);
 
-                string request = string.Format("https://spatial.virtualearth.net/REST/v1/data/{0}/{1}/$commit?output=json&key={2}", accessId, dataSourceName, masterKey);
+                string request = string.Format("https://spatial.virtualearth.net/REST/v1/data/{0}/{1}/$commit?output=json&key={2}&clientApi=SDSToolkit", accessId, dataSourceName, masterKey);
 
                 var jobs = await DownloadDataServiceJobs(request);
 
@@ -256,7 +256,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                     {
                         if (string.Compare(l.Role, "self", StringComparison.OrdinalIgnoreCase) == 0)
                         {
-                            statusUrl = l.URL;
+                            statusUrl = l.Url;
                             break;
                         }
                     }
@@ -340,7 +340,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                     throw new Exception("Not all rows of the data source contain location information.");
                 }
                 
-                string request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/LoadDataSource?loadOperation={0}&dataSourceName={1}&setPublic={2}&input=xml&output=json&key={3}",
+                string request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/LoadDataSource?loadOperation={0}&dataSourceName={1}&setPublic={2}&input=xml&output=json&key={3}&clientApi=SDSToolkit",
                     loadOperation,
                     dataSource.Info.DataSourceName,
                     (setPublic) ? 1 : 0,
@@ -414,7 +414,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
                 //Handle KML and SHP files.          
 
-                string request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/LoadDataSource?loadOperation={0}&dataSourceName={1}&setPublic={2}&input={3}&output=json&key={4}",
+                string request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/LoadDataSource?loadOperation={0}&dataSourceName={1}&setPublic={2}&input={3}&output=json&key={4}&clientApi=SDSToolkit",
                     loadOperation,
                     info.DataSourceName,
                     (setPublic) ? 1 : 0,
@@ -487,17 +487,17 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
             if (job.Status.Equals("Completed"))
             {
-                string downloadURL = null;
+                string downloadUrl = null;
                 foreach (Link l in job.Links)
                 {
                     if (l.Role.Equals("output") && l.Name != null && l.Name.Equals("succeeded"))
                     {
-                        downloadURL = l.URL;
+                        downloadUrl = l.Url;
                         break;
                     }
                 }
 
-                using (var xmlStream = await ServiceHelper.GetStreamAsync(new Uri(downloadURL + "?key=" + masterKey)))
+                using (var xmlStream = await ServiceHelper.GetStreamAsync(new Uri(downloadUrl + "?key=" + masterKey)))
                 {                    
                     await dataSource.ReadAsync(xmlStream, DataSourceFormat.XML);
                     dataSource.Info.AccessId = accessId;
@@ -590,7 +590,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                     throw new Exception("Master key not specified.");
                 }
 
-                var request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/DataSourceRollback/{0}/{1}?output=json&key={2}", jobId, dataSourceName, masterKey);
+                var request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/DataSourceRollback/{0}/{1}?output=json&key={2}&clientApi=SDSToolkit", jobId, dataSourceName, masterKey);
 
                 var jobs = await DownloadDataflowJobs(request);
 
@@ -603,7 +603,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                     {
                         if (string.Compare(l.Role, "self", StringComparison.OrdinalIgnoreCase) == 0)
                         {
-                            statusUrl = l.URL;
+                            statusUrl = l.Url;
                             break;
                         }
                     }
@@ -679,7 +679,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             var tcs = new TaskCompletionSource<bool>();
             ValidateProperties(accessId, dataSourceName, masterKey);
 
-            string requestUrl = string.Format("https://spatial.virtualearth.net/REST/v1/data/{0}/{1}?isStaging={2}&key={3}", accessId, dataSourceName, (isStaging) ? 1 : 0, masterKey);
+            string requestUrl = string.Format("https://spatial.virtualearth.net/REST/v1/data/{0}/{1}?isStaging={2}&key={3}&clientApi=SDSToolkit", accessId, dataSourceName, (isStaging) ? 1 : 0, masterKey);
 
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(requestUrl);
             request.Method = "DELETE";
@@ -949,7 +949,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                     {
                         if (xCollection.HasAttributes)
                         {
-                            ds.QueryURL = xCollection.Attribute(XmlNamespaces.App + "href").Value;
+                            ds.QueryUrl = xCollection.Attribute(XmlNamespaces.App + "href").Value;
                         }
 
                         ds.EntityTypeName = xCollection.Element(XmlNamespaces.Atom + "title").Value;
@@ -967,7 +967,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             var tcs = new TaskCompletionSource<string>();
 
             //Build the HTTP URI that will upload and create the geocode dataflow job
-            string url = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/DataSourceDownload/{0}/{1}?output=json&key={2}",
+            string url = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/DataSourceDownload/{0}/{1}?output=json&key={2}&clientApi=SDSToolkit",
                 accessId,
                 dataSourceName,
                 Uri.EscapeUriString(masterKey));

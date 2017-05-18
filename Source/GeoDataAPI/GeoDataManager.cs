@@ -64,7 +64,7 @@ namespace BingMapsSDSToolkit.GeodataAPI
                 throw new Exception("The Coordinate or Address property of the request must be set.");
             }
 
-            string requestUrl = string.Format("https://platform.bing.com/geo/spatial/v1/public/Geodata?SpatialFilter=GetBoundary({0},{1},'{2}',{3},{4},'{5}','{6}')&$format=json&key={7}",
+            string requestUrl = string.Format("https://platform.bing.com/geo/spatial/v1/public/Geodata?SpatialFilter=GetBoundary({0},{1},'{2}',{3},{4},'{5}','{6}')&$format=json&key={7}&clientApi=SDSToolkit",
                 locationInfo,
                 request.LevelOfDetail,
                 request.EntityType.ToString(),

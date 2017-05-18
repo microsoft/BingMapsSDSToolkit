@@ -57,8 +57,8 @@ namespace BingSDSTestApp
 
         private BasicDataSourceInfo _queryApiDataSourceSettings = new BasicDataSourceInfo()
         {
-            //QueryURL = "http://spatial.virtualearth.net/REST/v1/data/f22876ec257b474b82fe2ffcb8393150/NavteqNA/NavteqPOIs",
-            QueryURL = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
+            //QueryUrl = "http://spatial.virtualearth.net/REST/v1/data/f22876ec257b474b82fe2ffcb8393150/NavteqNA/NavteqPOIs",
+            QueryUrl = "https://spatial.virtualearth.net/REST/v1/data/20181f26d9e94c81acdf9496133d4f23/FourthCoffeeSample/FourthCoffeeShops",
             QueryKey = BingMapsKey,
         };
 
@@ -331,7 +331,7 @@ namespace BingSDSTestApp
         private void UseWithQueryAPI_Clicked(object sender, RoutedEventArgs e)
         {
             var dsd = (sender as Button).Tag as DataSourceDetails;
-            _queryApiDataSourceSettings.QueryURL = dsd.QueryURL;
+            _queryApiDataSourceSettings.QueryUrl = dsd.QueryUrl;
 
             if (string.IsNullOrWhiteSpace(_queryApiDataSourceSettings.QueryKey) || string.IsNullOrWhiteSpace(_queryApiDataSourceSettings.MasterKey))
             {

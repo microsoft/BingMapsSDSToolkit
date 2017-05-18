@@ -48,6 +48,6 @@ namespace BingMapsSDSToolkit.DataSourceAPI
         /// The URL of the link.
         /// </summary>
         [DataMember(Name = "url", EmitDefaultValue = false)]
-        public string URL { get; set; }
+        public string Url { get; set; }
     }
 }

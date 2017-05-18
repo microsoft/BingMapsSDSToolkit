@@ -36,7 +36,7 @@ namespace BingMapsSDSToolkit.QueryAPI
 
         private int _top = 25;
         private int _skip = 0;
-        public DistanceUnitType _distanceUnits = DistanceUnitType.Kilometers;
+        private DistanceUnitType _distanceUnits = DistanceUnitType.Kilometers;
         
         internal bool _isIdRequest = false;
         internal bool _getDistance = false;
@@ -58,7 +58,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         /// <param name="info">Basic information about the data source.</param>
         public FindByPropertyRequest(BasicDataSourceInfo info)
         {
-            this.QueryURL = info.QueryURL;
+            this.QueryUrl = info.QueryUrl;
             this.MasterKey = info.MasterKey;
             this.QueryKey = info.QueryKey;
         }
@@ -141,7 +141,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         /// <returns>A URL to query the Bing Spatial Data Services.</returns>
         public virtual string GetRequestUrl()
         {
-            return GetBaseRequestUrl();
+            return string.Format(GetBaseRequestUrl(), "?");
         }
 
         /// <summary>
@@ -228,7 +228,7 @@ namespace BingMapsSDSToolkit.QueryAPI
                 }
             }
 
-            sb.AppendFormat("&key={0}", string.IsNullOrEmpty(QueryKey)? MasterKey: QueryKey);
+            sb.AppendFormat("&key={0}&clientApi=SDSToolkit", string.IsNullOrEmpty(QueryKey)? MasterKey: QueryKey);
 
             return sb.ToString();
         }

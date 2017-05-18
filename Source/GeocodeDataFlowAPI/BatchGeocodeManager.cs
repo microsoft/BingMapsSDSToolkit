@@ -154,7 +154,7 @@ namespace BingMapsSDSToolkit.GeocodeDataflowAPI
             var tcs = new TaskCompletionSource<string>();
 
             //Build the HTTP URI that will upload and create the geocode dataflow job
-            Uri createJobUri = new Uri("https://spatial.virtualearth.net/REST/v1/dataflows/geocode?input=xml&key=" + bingMapsKey);
+            Uri createJobUri = new Uri("https://spatial.virtualearth.net/REST/v1/dataflows/geocode?input=xml&clientApi=SDSToolkit&key=" + bingMapsKey);
 
             //Include the data to geocode in the HTTP request
             var request = HttpWebRequest.Create(createJobUri);
@@ -218,7 +218,7 @@ namespace BingMapsSDSToolkit.GeocodeDataflowAPI
         private async Task<DownloadDetails> CheckStatus(string dataflowJobLocation, string bingMapsKey)
         {
             //Build the HTTP Request to get job status
-            var uriBuilder = new UriBuilder(dataflowJobLocation + @"?key=" + bingMapsKey + "&output=xml");
+            var uriBuilder = new UriBuilder(dataflowJobLocation + @"?key=" + bingMapsKey + "&output=xml&clientApi=SDSToolkit");
             var request = (HttpWebRequest)WebRequest.Create(uriBuilder.Uri);
             request.Method = "GET";
                        
@@ -289,7 +289,7 @@ namespace BingMapsSDSToolkit.GeocodeDataflowAPI
             {
                 //Create a request to download successfully geocoded data. You must add the Bing Maps Key to the 
                 //download location URL provided in the response to the job status request.
-                var successUriBuilder = new UriBuilder(statusDetails.SucceededUrl + "?key=" + bingMapsKey);
+                var successUriBuilder = new UriBuilder(statusDetails.SucceededUrl + "?clientApi=SDSToolkit&key=" + bingMapsKey);
 
                 var successfulRequest = (HttpWebRequest)WebRequest.Create(successUriBuilder.Uri);
                 successfulRequest.Method = "GET";
@@ -311,7 +311,7 @@ namespace BingMapsSDSToolkit.GeocodeDataflowAPI
             //If some spatial data could not be geocoded, write the error information to a file called Failed.xml
             if (statusDetails.FailedUrl != null && !statusDetails.FailedUrl.Equals(String.Empty))
             {
-                var failedRequest = (HttpWebRequest)WebRequest.Create(new Uri(statusDetails.FailedUrl + "?key=" + bingMapsKey));
+                var failedRequest = (HttpWebRequest)WebRequest.Create(new Uri(statusDetails.FailedUrl + "?clientApi=SDSToolkit&key=" + bingMapsKey));
                 failedRequest.Method = "GET";
 
                 using (var response = (HttpWebResponse)await failedRequest.GetResponseAsync())

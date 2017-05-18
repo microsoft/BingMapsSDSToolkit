@@ -55,7 +55,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         {
             this._getDistance = true;
 
-            this.QueryURL = info.QueryURL;
+            this.QueryUrl = info.QueryUrl;
             this.MasterKey = info.MasterKey;
             this.QueryKey = info.QueryKey;
         }

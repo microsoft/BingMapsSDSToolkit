@@ -38,6 +38,26 @@ namespace BingMapsSDSToolkit
 
         #endregion
 
+        #region Constructor
+
+        /// <summary>
+        /// Basic information about a data source
+        /// </summary>
+        public BasicDataSourceInfo()
+        {
+        }
+
+        /// <summary>
+        /// Basic information about a data source
+        /// </summary>
+        /// <param name="queryUrl">A url that is used to query a data source. This is parsed into it's individual components; accessID, name, entityTypeName</param>
+        public BasicDataSourceInfo(string queryUrl)
+        {
+            QueryUrl = queryUrl;
+        }
+
+        #endregion
+
         #region Public Properties
 
         /// <summary>
@@ -92,7 +112,7 @@ namespace BingMapsSDSToolkit
         /// <summary>
         /// The query URL for accessing the data source.
         /// </summary>
-        public string QueryURL
+        public string QueryUrl
         {
             get
             {

@@ -64,7 +64,7 @@
 
                                                 <StackPanel Orientation="Horizontal" Margin="5">
                                                     <TextBlock Text="Query Url: "/>
-                                                    <TextBlock Text="{Binding QueryURL}"/>
+                                                    <TextBlock Text="{Binding QueryUrl}"/>
                                                 </StackPanel>
                                                 
                                                 <StackPanel Orientation="Horizontal" Margin="5">
