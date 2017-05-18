@@ -9,6 +9,14 @@ The Bing Maps Spatial Data Services Toolkit provides a set of tools for easily i
 
 All of these API's have a manager class in the toolkit which is used to process requests to these services.
 
+## BingMapsSDSToolkit API References
+
+* [Common API Reference](CommonApiReference.md)
+* [Data Source API Reference](DataSourceApiReference.md)
+* [Geocode Dataflow API Reference](GeocodeDataFlowApiReference.md)
+* [Geodata API Reference](GeodataApiReference.md)
+* [Query API Reference](QueryApiReference.md)
+
 <a name="DataSourceAPI"></a>
 ## Data Source API
 
