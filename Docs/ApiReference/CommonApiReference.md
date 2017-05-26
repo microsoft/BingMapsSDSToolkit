@@ -27,6 +27,23 @@ Basic information about a data source
 | QueryKey | String | The query Bing Maps key for querying a data source. |
 | QueryUrl | String | The query URL for accessing the data source. |
 
+## BingDataSources Class
+
+A static class that contains data source information for all the built-in Bing data sources in the Bing Spatial Data Services.
+
+### Static Properties
+
+| Name | Type        | Description |
+| ---- | ----------- | ----------- |
+| FourthCoffeeSample | BasicDataSourceInfo | A sample data source of coffee shops. |
+| NavteqPOIs_EU | BasicDataSourceInfo | A data source of points of interest for Europe.  |
+| NavteqPOIs_NA | BasicDataSourceInfo | A data source of points of interest for North America.  |
+| TrafficIncidents | BasicDataSourceInfo | A data source of real time traffic incidents (accidents, road closures, ...). |
+| USCensus2010_111CD | BasicDataSourceInfo | A data source that contains a subset of 2010 US Census data broken up by 111th Congressional Districts. |
+| USCensus2010_Counties | BasicDataSourceInfo | A data source that contains a subset of 2010 US Census data broken up by counties. |
+| USCensus2010_States | BasicDataSourceInfo | A data source that contains a subset of 2010 US Census data broken up by states. |
+| USCensus2010_ZCTA5 | BasicDataSourceInfo | A data source that contains a subset of 2010 US Census data broken up by Zip Code Tabulation areas (ZCTA5). |
+
 ## DistanceUnitType Enumerator
 
 Units of measurements for distances.

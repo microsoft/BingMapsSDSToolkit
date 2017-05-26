@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\BasicDataSourceInfo.cs" />
+    <Compile Include="Common\BingDataSources.cs" />
     <Compile Include="Common\FileExtensionUtilities.cs" />
     <Compile Include="DataSourceAPI\Models\ColumnHeader.cs" />
     <Compile Include="DataSourceAPI\Models\DataSourceGeocodeResults.cs" />
