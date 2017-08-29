@@ -199,7 +199,7 @@
                                 <TextBlock Text="Distance Units:" VerticalAlignment="Center"/>
                                 <ComboBox Name="DistanceUnitCbx" Width="75"  Margin="10,0">
                                     <ComboBox.Items>
-                                        <ComboBoxItem Content="KM" IsSelected="True"/>
+                                        <ComboBoxItem Content="Kilometers" IsSelected="True"/>
                                         <ComboBoxItem Content="Miles"/>
                                         <ComboBoxItem Content="Meters"/>
                                         <ComboBoxItem Content="Feet"/>
@@ -214,6 +214,7 @@
                                         <ComboBoxItem Content="25" IsSelected="True"/>
                                         <ComboBoxItem Content="50"/>
                                         <ComboBoxItem Content="100"/>
+                                        <ComboBoxItem Content="250"/>
                                     </ComboBox.Items>
                                 </ComboBox>
                             </StackPanel>

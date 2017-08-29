@@ -49,9 +49,9 @@ Alternatively, if you are using the nuget command line:
 
 ### Data Source API:
 
-* Can read compressed file streams.
+* Easily geocode and upload a data source with just a few lines of code. 
 * Automatically compresses data before uploading.
-* Supports uploading of delimited (pipe, tab, comma), XML (as per SDS schema), KML, KMZ and SHP files.
+* Supports uploading of delimited (pipe, tab, comma), XML (as per SDS schema), KML, KMZ and SHP files. Can read compressed file streams such as zipped files containing one of these files.
 * Local Data Source validation. Reduces the number of invalid data sources that are uploaded, thus reduce the number of wasted SDS jobs that are created.
 * Better support for delimited files. 
 	* Schema text not required.
@@ -61,13 +61,13 @@ Alternatively, if you are using the nuget command line:
 
 ### Geocode Data Flow API:
 
-* Forward and reverse geocode up to 200,000 entities in a single request.
-* Combines like addresses are combined as a single request. This allows rows with the same addresses to only create a single row in the geocode process. This helps to maximize the 1M free batch geocode limit.
+* Easily forward or reverse geocode up to 200,000 entities in a single request.
+* Combines like addresses as a single request. This allows rows with the same addresses to only create a single row in the geocode process. This helps to maximize the 1M free batch geocode limit.
 
 ### Geodata API:
 
-* Search for boundary data such as zip/postal codes, neighborhoods, cities, counties, states/provinces, countries, and continents.
-* Provides compression tools for handling the encoded polygon data,
+* Easily access the boundary data from the GeoData API and search for zip/postal codes, neighborhoods, cities, counties, states/provinces, countries, and continent boundaries.
+* Provides compression tools for handling the encoded polygon data.
 
 ### Query API:
 
@@ -95,11 +95,9 @@ The following is a list of tasks or ideas to do on this project.
 * Get culture for geocoding from country property
 * Option to download existing data source when geocoding, pull coordinates of already geocoded rows if address and id have not changed.
 
-## License
+## Related Projects ##
 
-MIT
- 
-See [License](LICENSE) for full license text.
+* [Bing Maps REST Toolkit for .NET](https://github.com/Microsoft/BingMapsRESTToolkit)
 
 ## Additional Resources
 
@@ -110,3 +108,8 @@ See [License](LICENSE) for full license text.
 * [Bing Maps forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=bingmapsajax&filter=alltypes&sort=lastpostdesc)
 * [Bing Maps for Enterprise site](https://www.microsoft.com/maps/)
 
+## License
+
+MIT
+ 
+See [License](LICENSE) for full license text.
