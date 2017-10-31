@@ -52,6 +52,7 @@ namespace BingMapsSDSToolkit.QueryAPI
         {
             PropertyName = propertyName;
             Operator = logicalOperator;
+            Value = value;
         }
 
         #endregion
