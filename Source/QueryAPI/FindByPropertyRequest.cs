@@ -228,7 +228,7 @@ namespace BingMapsSDSToolkit.QueryAPI
                 }
             }
 
-            sb.AppendFormat("&key={0}&clientApi=SDSToolkit", string.IsNullOrEmpty(QueryKey)? MasterKey: QueryKey);
+            sb.AppendFormat("&key={0}&clientApi={1}", string.IsNullOrEmpty(QueryKey)? MasterKey: QueryKey, InternalSettings.ClientApi);
 
             return sb.ToString();
         }

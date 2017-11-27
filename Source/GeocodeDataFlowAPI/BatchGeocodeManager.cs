@@ -154,7 +154,7 @@ namespace BingMapsSDSToolkit.GeocodeDataflowAPI
             var tcs = new TaskCompletionSource<string>();
 
             //Build the HTTP URI that will upload and create the geocode dataflow job
-            Uri createJobUri = new Uri("https://spatial.virtualearth.net/REST/v1/dataflows/geocode?input=xml&clientApi=SDSToolkit&key=" + bingMapsKey);
+            Uri createJobUri = new Uri("https://spatial.virtualearth.net/REST/v1/dataflows/geocode?input=xml&clientApi=" + InternalSettings.ClientApi + "&key=" + bingMapsKey);
 
             //Include the data to geocode in the HTTP request
             var request = HttpWebRequest.Create(createJobUri);
@@ -218,7 +218,7 @@ namespace BingMapsSDSToolkit.GeocodeDataflowAPI
         private async Task<DownloadDetails> CheckStatus(string dataflowJobLocation, string bingMapsKey)
         {
             //Build the HTTP Request to get job status
-            var uriBuilder = new UriBuilder(dataflowJobLocation + @"?key=" + bingMapsKey + "&output=xml&clientApi=SDSToolkit");
+            var uriBuilder = new UriBuilder(dataflowJobLocation + @"?key=" + bingMapsKey + "&output=xml&clientApi=" + InternalSettings.ClientApi);
             var request = (HttpWebRequest)WebRequest.Create(uriBuilder.Uri);
             request.Method = "GET";
                        

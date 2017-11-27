@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{6E311F7C-45B1-46C0-96B4-D4BA2048C818}"
 EndProject
@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83B9E985-FC31-42F4-A569-AEB80E363C7C}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
 		CONTRIBUTING.md = CONTRIBUTING.md
 		LICENSE = LICENSE
 		README.md = README.md
@@ -40,6 +41,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiReference", "ApiReferenc
 		Docs\ApiReference\Readme.md = Docs\ApiReference\Readme.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BingMapsSDSToolkit.Standard", "Source\BingMapsSDSToolkit.Standard\BingMapsSDSToolkit.Standard.csproj", "{9A85F050-2979-40BC-9513-4DC86BF33D26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDSToolkitConsoleApp.Core", "Samples\Console\SDSToolkitConsoleApp.Core\SDSToolkitConsoleApp.Core.csproj", "{99D07607-250A-44A9-B5D3-ED43C326B247}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +63,14 @@ Global
 		{FE6699B1-E03F-42FD-8555-83D3758D0787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE6699B1-E03F-42FD-8555-83D3758D0787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE6699B1-E03F-42FD-8555-83D3758D0787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A85F050-2979-40BC-9513-4DC86BF33D26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A85F050-2979-40BC-9513-4DC86BF33D26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A85F050-2979-40BC-9513-4DC86BF33D26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A85F050-2979-40BC-9513-4DC86BF33D26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D07607-250A-44A9-B5D3-ED43C326B247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D07607-250A-44A9-B5D3-ED43C326B247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D07607-250A-44A9-B5D3-ED43C326B247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D07607-250A-44A9-B5D3-ED43C326B247}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +82,10 @@ Global
 		{69E38C4B-4B41-486D-8B01-570C8C1D7FC0} = {AC3A8636-6F98-45FB-A675-241E563E90C9}
 		{FE6699B1-E03F-42FD-8555-83D3758D0787} = {CDEC08CC-3827-459E-87F6-517811CB14A3}
 		{AEB4529E-4AEF-4D0B-9692-8CFBFF4365BF} = {FE243BC0-82EA-4C67-9990-2B825B66BB65}
+		{9A85F050-2979-40BC-9513-4DC86BF33D26} = {6E311F7C-45B1-46C0-96B4-D4BA2048C818}
+		{99D07607-250A-44A9-B5D3-ED43C326B247} = {CDEC08CC-3827-459E-87F6-517811CB14A3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08F90658-D4E7-4134-BA9C-B33155B6F970}
 	EndGlobalSection
 EndGlobal

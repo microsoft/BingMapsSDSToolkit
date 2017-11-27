@@ -231,7 +231,7 @@ namespace BingMapsSDSToolkit.GeocodeDataflowAPI
                      where e.GeocodeRequest != null && e.GeocodeRequest.Address != null && e.GeocodeRequest.Address.Equals(address)
                      select e).FirstOrDefault();
 
-            return (entity != null) ? entity.Id : null;
+            return entity?.Id;
         }
 
         private static GeocodeFeed ParseDelimitedFile(StreamReader textReader, BatchFileFormat format)

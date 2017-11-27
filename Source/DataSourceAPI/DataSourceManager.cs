@@ -243,7 +243,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             {
                 ValidateProperties(accessId, dataSourceName, masterKey);
 
-                string request = string.Format("https://spatial.virtualearth.net/REST/v1/data/{0}/{1}/$commit?output=json&key={2}&clientApi=SDSToolkit", accessId, dataSourceName, masterKey);
+                string request = string.Format("https://spatial.virtualearth.net/REST/v1/data/{0}/{1}/$commit?output=json&key={2}&clientApi={3}", accessId, dataSourceName, masterKey, InternalSettings.ClientApi);
 
                 var jobs = await DownloadDataServiceJobs(request);
 
@@ -340,11 +340,11 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                     throw new Exception("Not all rows of the data source contain location information.");
                 }
                 
-                string request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/LoadDataSource?loadOperation={0}&dataSourceName={1}&setPublic={2}&input=xml&output=json&key={3}&clientApi=SDSToolkit",
+                string request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/LoadDataSource?loadOperation={0}&dataSourceName={1}&setPublic={2}&input=xml&output=json&key={3}&clientApi={4}",
                     loadOperation,
                     dataSource.Info.DataSourceName,
                     (setPublic) ? 1 : 0,
-                    dataSource.Info.MasterKey);
+                    dataSource.Info.MasterKey, InternalSettings.ClientApi);
 
                 if (!string.IsNullOrWhiteSpace(dataSource.Info.QueryKey))
                 {
@@ -414,12 +414,12 @@ namespace BingMapsSDSToolkit.DataSourceAPI
 
                 //Handle KML and SHP files.          
 
-                string request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/LoadDataSource?loadOperation={0}&dataSourceName={1}&setPublic={2}&input={3}&output=json&key={4}&clientApi=SDSToolkit",
+                string request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/LoadDataSource?loadOperation={0}&dataSourceName={1}&setPublic={2}&input={3}&output=json&key={4}&clientApi={5}",
                     loadOperation,
                     info.DataSourceName,
                     (setPublic) ? 1 : 0,
                     (format == DataSourceFormat.KML) ? "kml" : "shp",
-                    info.MasterKey);
+                    info.MasterKey, InternalSettings.ClientApi);
 
                 if (!string.IsNullOrWhiteSpace(info.QueryKey))
                 {
@@ -590,7 +590,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
                     throw new Exception("Master key not specified.");
                 }
 
-                var request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/DataSourceRollback/{0}/{1}?output=json&key={2}&clientApi=SDSToolkit", jobId, dataSourceName, masterKey);
+                var request = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/DataSourceRollback/{0}/{1}?output=json&key={2}&clientApi={3}", jobId, dataSourceName, masterKey, InternalSettings.ClientApi);
 
                 var jobs = await DownloadDataflowJobs(request);
 
@@ -679,7 +679,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             var tcs = new TaskCompletionSource<bool>();
             ValidateProperties(accessId, dataSourceName, masterKey);
 
-            string requestUrl = string.Format("https://spatial.virtualearth.net/REST/v1/data/{0}/{1}?isStaging={2}&key={3}&clientApi=SDSToolkit", accessId, dataSourceName, (isStaging) ? 1 : 0, masterKey);
+            string requestUrl = string.Format("https://spatial.virtualearth.net/REST/v1/data/{0}/{1}?isStaging={2}&key={3}&clientApi={4}", accessId, dataSourceName, (isStaging) ? 1 : 0, masterKey, InternalSettings.ClientApi);
 
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(requestUrl);
             request.Method = "DELETE";
@@ -967,10 +967,10 @@ namespace BingMapsSDSToolkit.DataSourceAPI
             var tcs = new TaskCompletionSource<string>();
 
             //Build the HTTP URI that will upload and create the geocode dataflow job
-            string url = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/DataSourceDownload/{0}/{1}?output=json&key={2}&clientApi=SDSToolkit",
+            string url = string.Format("https://spatial.virtualearth.net/REST/v1/Dataflows/DataSourceDownload/{0}/{1}?output=json&key={2}&clientApi={3}",
                 accessId,
                 dataSourceName,
-                Uri.EscapeUriString(masterKey));
+                Uri.EscapeUriString(masterKey), InternalSettings.ClientApi);
 
             Uri createJobUri = new Uri(url);
 

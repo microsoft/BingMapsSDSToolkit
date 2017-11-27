@@ -1,0 +1,114 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>BingMapsSDSToolkit</RootNamespace>
+    <AssemblyName>BingMapsSDSToolkit</AssemblyName>
+    <Version>1.0.4</Version>
+    <Description>A portable class library that makes it easy to access the Bing Maps Spatial Data Services from .NET.</Description>
+    <Company>Microsoft</Company>
+    <Authors>microsoft bingmaps</Authors>
+    <Copyright>© Microsoft Corporation. All rights reserved</Copyright>
+    <PackageLicenseUrl>https://github.com/Microsoft/BingMapsSDSToolkit/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Microsoft/BingMapsSDSToolkit</PackageProjectUrl>
+    <PackageIconUrl>https://www.bing.com/sa/simg/bing_p_rr_teal_min.ico</PackageIconUrl>
+    <PackageTags>Microsoft "Bing Maps" Maps GIS Map Geospatial VB C# .NET REST</PackageTags>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Common\BasicDataSourceInfo.cs" Link="Common\BasicDataSourceInfo.cs" />
+    <Compile Include="..\Common\BingDataSources.cs" Link="Common\BingDataSources.cs" />
+    <Compile Include="..\Common\DistanceUnitType.cs" Link="Common\DistanceUnitType.cs" />
+    <Compile Include="..\Common\FileExtensionUtilities.cs" Link="Common\FileExtensionUtilities.cs" />
+    <Compile Include="..\Common\GeoDataLocation.cs" Link="Common\GeoDataLocation.cs" />
+    <Compile Include="..\Common\Geography.cs" Link="Common\Geography.cs" />
+    <Compile Include="..\Common\InternalSettings.cs" Link="Common\InternalSettings.cs" />
+    <Compile Include="..\Common\SpatialTools.cs" Link="Common\SpatialTools.cs" />
+    <Compile Include="..\DataSourceAPI\DataSource.cs" Link="DataSourceAPI\DataSource.cs" />
+    <Compile Include="..\DataSourceAPI\DataSourceManager.cs" Link="DataSourceAPI\DataSourceManager.cs" />
+    <Compile Include="..\DataSourceAPI\Enums\DataSourceFormat.cs" Link="DataSourceAPI\Enums\DataSourceFormat.cs" />
+    <Compile Include="..\DataSourceAPI\Enums\LoadOperation.cs" Link="DataSourceAPI\Enums\LoadOperation.cs" />
+    <Compile Include="..\DataSourceAPI\Models\ColumnHeader.cs" Link="DataSourceAPI\Models\ColumnHeader.cs" />
+    <Compile Include="..\DataSourceAPI\Models\DataflowJob.cs" Link="DataSourceAPI\Models\DataflowJob.cs" />
+    <Compile Include="..\DataSourceAPI\Models\DataflowResponse.cs" Link="DataSourceAPI\Models\DataflowResponse.cs" />
+    <Compile Include="..\DataSourceAPI\Models\DataflowResultSet.cs" Link="DataSourceAPI\Models\DataflowResultSet.cs" />
+    <Compile Include="..\DataSourceAPI\Models\DataServiceJob.cs" Link="DataSourceAPI\Models\DataServiceJob.cs" />
+    <Compile Include="..\DataSourceAPI\Models\DataSourceDetails.cs" Link="DataSourceAPI\Models\DataSourceDetails.cs" />
+    <Compile Include="..\DataSourceAPI\Models\DataSourceGeocodeResults.cs" Link="DataSourceAPI\Models\DataSourceGeocodeResults.cs" />
+    <Compile Include="..\DataSourceAPI\Models\Link.cs" Link="DataSourceAPI\Models\Link.cs" />
+    <Compile Include="..\DataSourceAPI\Models\ValidationResult.cs" Link="DataSourceAPI\Models\ValidationResult.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\BatchGeocodeManager.cs" Link="GeocodeDataflowAPI\BatchGeocodeManager.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\BatchGeocoderResults.cs" Link="GeocodeDataflowAPI\BatchGeocoderResults.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Enums\BatchFileFormat.cs" Link="GeocodeDataflowAPI\Enums\BatchFileFormat.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Enums\CalculationMethodTypes.cs" Link="GeocodeDataflowAPI\Enums\CalculationMethodTypes.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Enums\ConfidenceTypes.cs" Link="GeocodeDataflowAPI\Enums\ConfidenceTypes.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Enums\GeocodeEntityType.cs" Link="GeocodeDataflowAPI\Enums\GeocodeEntityType.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Enums\MatchCodeTypes.cs" Link="GeocodeDataflowAPI\Enums\MatchCodeTypes.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Enums\QueryParsePropertyTypes.cs" Link="GeocodeDataflowAPI\Enums\QueryParsePropertyTypes.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\GeocodeFeed.cs" Link="GeocodeDataflowAPI\GeocodeFeed.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Models\Address.cs" Link="GeocodeDataflowAPI\Models\Address.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Models\BaseRequest.cs" Link="GeocodeDataflowAPI\Models\BaseRequest.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Models\BoundingBox.cs" Link="GeocodeDataflowAPI\Models\BoundingBox.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Models\ConfidenceFilter.cs" Link="GeocodeDataflowAPI\Models\ConfidenceFilter.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Models\GeocodeEntity.cs" Link="GeocodeDataflowAPI\Models\GeocodeEntity.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Models\GeocodePoint.cs" Link="GeocodeDataflowAPI\Models\GeocodePoint.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Models\GeocodeRequest.cs" Link="GeocodeDataflowAPI\Models\GeocodeRequest.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Models\GeocodeResponse.cs" Link="GeocodeDataflowAPI\Models\GeocodeResponse.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Models\QueryParseValue.cs" Link="GeocodeDataflowAPI\Models\QueryParseValue.cs" />
+    <Compile Include="..\GeocodeDataflowAPI\Models\ReverseGeocodeRequest.cs" Link="GeocodeDataflowAPI\Models\ReverseGeocodeRequest.cs" />
+    <Compile Include="..\GeoDataAPI\Enums\BoundaryEntityType.cs" Link="GeoDataAPI\Enums\BoundaryEntityType.cs" />
+    <Compile Include="..\GeoDataAPI\GeoDataManager.cs" Link="GeoDataAPI\GeoDataManager.cs" />
+    <Compile Include="..\GeoDataAPI\GetBoundaryRequest.cs" Link="GeoDataAPI\GetBoundaryRequest.cs" />
+    <Compile Include="..\GeoDataAPI\Models\Copyright.cs" Link="GeoDataAPI\Models\Copyright.cs" />
+    <Compile Include="..\GeoDataAPI\Models\CopyrightSource.cs" Link="GeoDataAPI\Models\CopyrightSource.cs" />
+    <Compile Include="..\GeoDataAPI\Models\GeoDataPolygon.cs" Link="GeoDataAPI\Models\GeoDataPolygon.cs" />
+    <Compile Include="..\GeoDataAPI\Models\GeoDataResponse.cs" Link="GeoDataAPI\Models\GeoDataResponse.cs" />
+    <Compile Include="..\GeoDataAPI\Models\GeoDataResult.cs" Link="GeoDataAPI\Models\GeoDataResult.cs" />
+    <Compile Include="..\GeoDataAPI\Models\GeoDataResultSet.cs" Link="GeoDataAPI\Models\GeoDataResultSet.cs" />
+    <Compile Include="..\GeoDataAPI\Models\Metadata.cs" Link="GeoDataAPI\Models\Metadata.cs" />
+    <Compile Include="..\GeoDataAPI\Models\Name.cs" Link="GeoDataAPI\Models\Name.cs" />
+    <Compile Include="..\GeoDataAPI\Models\Primitive.cs" Link="GeoDataAPI\Models\Primitive.cs" />
+    <Compile Include="..\GeoDataAPI\PointCompression.cs" Link="GeoDataAPI\PointCompression.cs" />
+    <Compile Include="..\Internal\DelimitedFileReader.cs" Link="Internal\DelimitedFileReader.cs" />
+    <Compile Include="..\Internal\DelimitedFileWriter.cs" Link="Internal\DelimitedFileWriter.cs" />
+    <Compile Include="..\Internal\DownloadDetails.cs" Link="Internal\DownloadDetails.cs" />
+    <Compile Include="..\Internal\ServiceHelper.cs" Link="Internal\ServiceHelper.cs" />
+    <Compile Include="..\Internal\XmlNamespaces.cs" Link="Internal\XmlNamespaces.cs" />
+    <Compile Include="..\Internal\XmlUtilities.cs" Link="Internal\XmlUtilities.cs" />
+    <Compile Include="..\QueryAPI\Enums\AvoidType.cs" Link="QueryAPI\Enums\AvoidType.cs" />
+    <Compile Include="..\QueryAPI\Enums\CompareOperator.cs" Link="QueryAPI\Enums\CompareOperator.cs" />
+    <Compile Include="..\QueryAPI\Enums\LogicalOperator.cs" Link="QueryAPI\Enums\LogicalOperator.cs" />
+    <Compile Include="..\QueryAPI\Enums\RouteOptimizationType.cs" Link="QueryAPI\Enums\RouteOptimizationType.cs" />
+    <Compile Include="..\QueryAPI\Enums\TravelModeType.cs" Link="QueryAPI\Enums\TravelModeType.cs" />
+    <Compile Include="..\QueryAPI\FindByPropertyRequest.cs" Link="QueryAPI\FindByPropertyRequest.cs" />
+    <Compile Include="..\QueryAPI\FindInBoundingBoxRequest.cs" Link="QueryAPI\FindInBoundingBoxRequest.cs" />
+    <Compile Include="..\QueryAPI\FindNearByRequest.cs" Link="QueryAPI\FindNearByRequest.cs" />
+    <Compile Include="..\QueryAPI\FindNearRouteRequest.cs" Link="QueryAPI\FindNearRouteRequest.cs" />
+    <Compile Include="..\QueryAPI\IntersectionSearchRequest.cs" Link="QueryAPI\IntersectionSearchRequest.cs" />
+    <Compile Include="..\QueryAPI\Models\FilterExpression.cs" Link="QueryAPI\Models\FilterExpression.cs" />
+    <Compile Include="..\QueryAPI\Models\FilterGroup.cs" Link="QueryAPI\Models\FilterGroup.cs" />
+    <Compile Include="..\QueryAPI\Models\IFilter.cs" Link="QueryAPI\Models\IFilter.cs" />
+    <Compile Include="..\QueryAPI\Models\QueryResponse.cs" Link="QueryAPI\Models\QueryResponse.cs" />
+    <Compile Include="..\QueryAPI\Models\QueryResult.cs" Link="QueryAPI\Models\QueryResult.cs" />
+    <Compile Include="..\QueryAPI\QueryManager.cs" Link="QueryAPI\QueryManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="DataSourceAPI\Enums\" />
+    <Folder Include="DataSourceAPI\Models\" />
+    <Folder Include="GeocodeDataflowAPI\Enums\" />
+    <Folder Include="GeocodeDataflowAPI\Models\" />
+    <Folder Include="GeoDataAPI\Enums\" />
+    <Folder Include="GeoDataAPI\Models\" />
+    <Folder Include="Internal\" />
+    <Folder Include="QueryAPI\Enums\" />
+    <Folder Include="QueryAPI\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.4.0" />
+  </ItemGroup>
+
+</Project>
