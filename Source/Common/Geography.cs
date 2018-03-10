@@ -56,7 +56,7 @@ namespace BingMapsSDSToolkit
             if (string.IsNullOrEmpty(this.WellKnownText))
             {
                 //For performance use a regular expression.
-                var coordRx = new Regex(@"-?[0-9]+\.?[0-9]* -?[0-9]+\.?[0-9]*");
+                var coordRx = new Regex(@"-?[0-9]+(.|,)?[0-9]* -?[0-9]+(.|,)?[0-9]*");
                 var m = coordRx.Matches(this.WellKnownText);
 
                 if (m != null)

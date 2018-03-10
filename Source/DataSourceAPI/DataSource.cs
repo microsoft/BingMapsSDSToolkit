@@ -56,7 +56,7 @@ namespace BingMapsSDSToolkit.DataSourceAPI
         //Includes lat/lon
         private const int _maxColumns = 352;
 
-        private Regex coordinatePairRegex = new Regex("(-?[0-9]+.?[0-9]* -?[0-9]+.?[0-9]*)");
+        private Regex coordinatePairRegex = new Regex("(-?[0-9]+(.|,)?[0-9]* -?[0-9]+(.|,)?[0-9]*)");
 
         private const string XmlnsNamespace = "http://www.w3.org/2000/xmlns/";
         private const string XmlSchemaNamespace = "http://www.w3.org/2001/XMLSchema";

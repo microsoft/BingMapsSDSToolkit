@@ -101,6 +101,12 @@ namespace BingMapsSDSToolkit.GeodataAPI
             set { userRegion = value; }
         }
 
+        /// <summary>
+        /// Prefer curated boundary polygons. Curated polygons have been optimized for display purposes. 
+        /// These polygons are typically clipped to the land, and can fall somewhere between medium and high fidelity.
+        /// </summary>
+        public bool PreferCuratedPolygons { get; set; }
+
         #endregion
     }
 }

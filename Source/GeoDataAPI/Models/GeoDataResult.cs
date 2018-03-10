@@ -107,7 +107,7 @@ namespace BingMapsSDSToolkit.GeodataAPI
 
             if (EntityMetadata != null && !string.IsNullOrWhiteSpace(EntityMetadata.BestMapViewBox))
             {
-                var rx = new Regex("(-?[0-9]+.?[0-9]*)");
+                var rx = new Regex("(-?[0-9]+(.|,)?[0-9]*)");
 
                 var matches = rx.Matches(EntityMetadata.BestMapViewBox);
 

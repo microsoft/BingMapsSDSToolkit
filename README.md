@@ -1,6 +1,6 @@
 ![Bing Maps Logo](https://github.com/Microsoft/Bing-Maps-V8-TypeScript-Definitions/blob/master/images/BingMapsLogoTeal.png)
 
-[![NuGet](https://img.shields.io/badge/NuGet-1.0.4-blue.svg)](https://www.nuget.org/packages/BingMapsSDSToolkit)
+[![NuGet](https://img.shields.io/badge/NuGet-1.0.5-blue.svg)](https://www.nuget.org/packages/BingMapsSDSToolkit)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
 # Bing Maps Spatial Data Services (SDS) Toolkit for .NET

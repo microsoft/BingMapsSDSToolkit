@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>BingMapsSDSToolkit</RootNamespace>
     <AssemblyName>BingMapsSDSToolkit</AssemblyName>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Description>A portable class library that makes it easy to access the Bing Maps Spatial Data Services from .NET.</Description>
     <Company>Microsoft</Company>
     <Authors>microsoft bingmaps</Authors>
@@ -13,7 +13,8 @@
     <PackageProjectUrl>https://github.com/Microsoft/BingMapsSDSToolkit</PackageProjectUrl>
     <PackageIconUrl>https://www.bing.com/sa/simg/bing_p_rr_teal_min.ico</PackageIconUrl>
     <PackageTags>Microsoft "Bing Maps" Maps GIS Map Geospatial VB C# .NET REST</PackageTags>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -374,7 +374,7 @@ var request = new FindNearByRequest(_queryApiDataSourceSettings)
 {
 	Distance = 45,
 	DistanceUnits = DistanceUnitType.Kilometers,
-	request.Address = "Seattle, WA"
+	Address = "Seattle, WA"
 };
 
 //Process the request.
