@@ -142,6 +142,7 @@ An object the contains the request information for retrieving a boundary.
 | GetAllPolygons | Boolean | Specifies whether the response should include all of the boundary polygons for the requested entity or just return a single polygon that represents the main outline of the entity. |
 | GetEntityMetadata | Boolean | Specifies whether the response should include metadata about the entity, such as AreaSqKm and others. |
 | LevelOfDetail | Int32 | The level of detail for the boundary polygons returned. An integer between 0 and 3, where 0 specifies the coarsest level of boundary detail and 3 specifies the best. Default: 0. |
+| PreferCuratedPolygons | Boolean | Prefer curated boundary polygons. Curated polygons have been optimized for display purposes. These polygons are typically clipped to the land, and can fall somewhere between medium and high fidelity. |
 | UserRegion | String | Specifies the user’s home country or region. Default: US |
 
 ## Metadata Class
