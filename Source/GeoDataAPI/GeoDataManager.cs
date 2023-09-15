@@ -25,6 +25,7 @@
 using BingMapsSDSToolkit.Internal;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 
@@ -52,7 +53,7 @@ namespace BingMapsSDSToolkit.GeodataAPI
             string locationInfo = string.Empty;
             if (request.Coordinate != null)
             {
-                locationInfo += string.Format("{0:0.#####},{1:0.#####}", request.Coordinate.Latitude, request.Coordinate.Longitude);
+                locationInfo += string.Format(CultureInfo.InvariantCulture, "{0:0.#####},{1:0.#####}", request.Coordinate.Latitude, request.Coordinate.Longitude);
             }
             else if (!string.IsNullOrWhiteSpace(request.Address))
             {
@@ -64,7 +65,7 @@ namespace BingMapsSDSToolkit.GeodataAPI
                 throw new Exception("The Coordinate or Address property of the request must be set.");
             }
 
-            string requestUrl = string.Format("https://platform.bing.com/geo/spatial/v1/public/Geodata?SpatialFilter=GetBoundary({0},{1},'{2}',{3},{4},'{5}','{6}')&PreferCuratedPolygons={9}&$format=json&key={7}&clientApi={8}",
+            string requestUrl = string.Format(CultureInfo.InvariantCulture, "https://platform.bing.com/geo/spatial/v1/public/Geodata?SpatialFilter=GetBoundary({0},{1},'{2}',{3},{4},'{5}','{6}')&PreferCuratedPolygons={9}&$format=json&key={7}&clientApi={8}",
                 locationInfo,
                 request.LevelOfDetail,
                 request.EntityType.ToString(),
