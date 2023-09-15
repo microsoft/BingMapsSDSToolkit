@@ -116,13 +116,13 @@ namespace BingMapsSDSToolkit.GeodataAPI
                     SouthEast = new GeodataLocation()
                     {
                         Latitude = double.Parse(matches[1].Value),
-                        Longitude = double.Parse(matches[0].Value),
+                        Longitude = double.Parse(matches[2].Value),
                     };
 
                     NorthWest = new GeodataLocation()
                     {
                         Latitude = double.Parse(matches[3].Value),
-                        Longitude = double.Parse(matches[2].Value),
+                        Longitude = double.Parse(matches[0].Value),
                     };
                 }
             }

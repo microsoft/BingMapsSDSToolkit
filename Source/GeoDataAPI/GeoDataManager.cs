@@ -52,7 +52,7 @@ namespace BingMapsSDSToolkit.GeodataAPI
             string locationInfo = string.Empty;
             if (request.Coordinate != null)
             {
-                locationInfo += request.Coordinate.Latitude + "," + request.Coordinate.Longitude;
+                locationInfo += string.Format("{0:0.#####},{1:0.#####}", request.Coordinate.Latitude, request.Coordinate.Longitude);
             }
             else if (!string.IsNullOrWhiteSpace(request.Address))
             {
